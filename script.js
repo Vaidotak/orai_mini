@@ -1,4 +1,4 @@
-let apiKey = '' // jusu api key
+let apiKey = '3caf575b23a52e649f756f432846ed3e' // jusu api key
 let lang = 'lt' // kalba
 let units = 'metric' // naudojama metrine sistema
 let city = '' // miestas irasytas inpute
