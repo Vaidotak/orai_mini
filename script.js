@@ -37,7 +37,9 @@ function showWeatherInDom(data) {
     if (data.cod === '200') {
         // data tai duomenys, kuriuos mes padavem i funkcija
         // cia atvaizduojam gautus duomenis DOM'e
-
+        let population = document.createElement('div')
+        population.innerHTML = city + `. Šiame mieste gyvena ` + data.city.population + ` žmonės`
+        document.body.appendChild(population)
         // sekantys zingsniai:
         // 1. susikurti div
         // 2. susirinkti is objekto reikiamus duomenis pavyzdiui:
