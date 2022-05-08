@@ -7,3 +7,9 @@ body{
 #personimg{
     height: 5vh;
 }
+a{
+    margin: 20px;
+}
+.input-append{
+    margin: 20px;
+}
