@@ -4,7 +4,7 @@ body{
 #futureimg{
     width: 50%;
 }
-#personimg{
+#personimg, #windimgurl{
     height: 5vh;
 }
 a{

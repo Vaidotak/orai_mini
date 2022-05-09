@@ -87,33 +87,50 @@ function showWeatherInDom(data) {
       infoWeather.innerText = orasWeather;
       container.appendChild(infoWeather);
 
-    //   let htmlElements = ""
-    //     for (let i = 0; i < 1; i++) {
-    //     htmlElements += '<div id="weather">Tekstas1</div>'
+      // let htmlElements = ""
+      //   for (let i = 0; i < 1; i++) {
+      //   htmlElements += '<div class="weather"></div>'
         
-    //     htmlElements += '<div id="pressure">Tekstas2</div>'
-    //     htmlElements += '<div id="wind">Tekstas3</div>'
-    //     }
-    //     let pirmas = document.getElementById('weather')
-    //     pirmas.innerHTML = 'orasWeather'
-    //     let containerDiv = document.getElementById("container")
-    //     containerHeader.innerHTML = htmlElements
+      //   htmlElements += '<div class="pressure"></div>'
+      //   htmlElements += '<div class="wind"></div>'
+      //   }
+      //   let pirmas = document.getElementsByClassName('weather')
+      //   console.log(document.getElementsByClassName('weather'))
+      //   console.log(orasWeather)
+      //   document.getElementsByClassName('weather').innerHTML = orasWeather
+      //   let containerDiv = document.getElementById("container")
+      //   console.log(document.getElementById("container"))
+      //   containerHeader.innerHTML = htmlElements
+
+
 
       const population = document.createElement("div")
       population.style.borderRadius = "10px";
      
       population.style.padding = "2%";
       population.style.margin = "2%";
-      population.innerHTML = data.city.population
+      population.innerHTML = ` `+  data.city.population
       container.appendChild(population);
 
       const personImg = document.createElement('img')
       personImg.setAttribute('id', 'personimg')
       const personImgUrl = 'person-solid.svg'
       personImg.src = personImgUrl
-      population.appendChild(personImg)
+      population.prepend(personImg)
 
-      const windImgUrl = document.createElement('img')
+      const windDiv = document.createElement("div")
+      windDiv.style.borderRadius = "10px";
+      windDiv.style.padding = "2%";
+      windDiv.style.margin = "2%";
+      windDiv.innerHTML = ` `+ vejasSpeed + ` m/s`
+      container.appendChild(windDiv);
+
+      const windImg = document.createElement('img')
+      windImg.setAttribute('id', 'windimgurl')
+      const windimgurl = 'wind-solid.svg'
+      windImg.src = windimgurl
+      windDiv.prepend(windImg)
+
       const PressureImgUrl = document.createElement('img')
 
       const tempDabar = document.createElement("div");
@@ -153,8 +170,10 @@ function showWeatherInDom(data) {
       tempDabarBig.innerHTML = temperatura + ` °C `;
       containerHeader.appendChild(tempDabarBig);
     }
+    showWeather2days()
 
-    for (let i = 2; i < 40; i += 4) {
+    function showWeather2days(){    
+      for (let i = 2; i < 20; i += 2) {
       const futureWeatherIcon = data.list[i].weather[0].icon
       const futureIconUrl =
         "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
@@ -164,14 +183,15 @@ function showWeatherInDom(data) {
       const futureWeather = document.createElement("div")
       const futureWeatherLeft1 = document.createElement("div")
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
-      futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
+      //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
       futureWeatherLeft1.style.minWidth = "22%";
       futureWeatherLeft1.style.fontSize = "2.5vh";
       futureWeatherLeft1.innerHTML = data.list[i].dt_txt
       futureWeather.appendChild(futureWeatherLeft1);
+
       const futureWeatherLeft2 = document.createElement("div")
       futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
-      futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
+      //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
       futureWeatherLeft2.style.display = "flex"
       futureWeatherLeft2.style.justifyContent = "center"
       futureWeather.appendChild(futureWeatherLeft2)
@@ -180,11 +200,13 @@ function showWeatherInDom(data) {
       futureimg.setAttribute("id", "futureimg");
       futureimg.style.textAlign = "center";
       futureimg.src = futureIconUrl;
-      futureWeatherLeft2.prepend(futureimg);
+      futureWeatherLeft2.prepend(futureimg)
+      //futureWeatherLeft2.innerText = data.list[i].weather[0].description
+      console.log(data.list[i].weather[0].description)
 
       const futureWeatherRight1 = document.createElement("div");
       futureWeatherRight1.setAttribute("id", "futureWeatherRight1");
-      futureWeatherRight1.style.backgroundColor = "#FFF7DF";
+      //futureWeatherRight1.style.backgroundColor = "#FFF7DF";
       futureWeatherRight1.style.minWidth = "22%";
       futureWeatherRight1.style.display = "flex";
       futureWeatherRight1.style.justifyContent = "center";
@@ -194,13 +216,13 @@ function showWeatherInDom(data) {
       futureWeather.appendChild(futureWeatherRight1);
       const futureWeatherRight2 = document.createElement("div");
       futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
-      futureWeatherRight2.style.backgroundColor = "#FFF7DF";
+      //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
       futureWeatherRight2.style.minWidth = "22%";
       futureWeatherRight2.style.display = "flex";
       futureWeatherRight2.style.justifyContent = "center";
       futureWeatherRight2.style.alignItems = "center";
       futureWeatherRight2.innerHTML =
-        Math.round(data.list[0].wind.speed) + ` m/s`;
+        Math.round(data.list[i].wind.speed) + ` m/s`;
       futureWeather.appendChild(futureWeatherRight2);
       futureWeather.style.backgroundColor = "#FFFFFF";
       futureWeather.style.padding = "2px";
@@ -219,8 +241,9 @@ function showWeatherInDom(data) {
       //console.log(naujasArray)
       //let tempForecast = data.list[i].dt_txt
       //console.log(tempForecast)
-      console.log(data.city.name);
+      console.log(data.list[i]);
     }
+  }
   } else {
     alert("kazkas negerai, patikrinti konsole");
     console.log("Kazkas negerai", data);
