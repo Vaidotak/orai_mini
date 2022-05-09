@@ -164,7 +164,7 @@ function showWeatherInDom(data) {
       const futureWeather = document.createElement("div")
       const futureWeatherLeft1 = document.createElement("div")
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
-      futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
+      //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
       futureWeatherLeft1.style.minWidth = "22%";
       futureWeatherLeft1.style.fontSize = "2.5vh";
       futureWeatherLeft1.innerHTML = data.list[i].dt_txt
