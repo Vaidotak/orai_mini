@@ -170,84 +170,85 @@ function showWeatherInDom(data) {
       tempDabarBig.innerHTML = temperatura + ` °C `;
       containerHeader.appendChild(tempDabarBig);
     }
-    showWeather2days()
+    showWeather2days(2, 40, 2)
 
-    function showWeather2days(){    
-      for (let i = 2; i < 20; i += 2) {
-      const futureWeatherIcon = data.list[i].weather[0].icon
-      const futureIconUrl =
-        "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
-        futureWeatherIcon +
-        ".svg";
-      futureWeatherIcon
-      const futureWeather = document.createElement("div")
-      const futureWeatherLeft1 = document.createElement("div")
-      futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
-      //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
-      futureWeatherLeft1.style.minWidth = "22%";
-      futureWeatherLeft1.style.fontSize = "2.5vh";
-      futureWeatherLeft1.innerHTML = data.list[i].dt_txt
-      futureWeather.appendChild(futureWeatherLeft1);
 
-      const futureWeatherLeft2 = document.createElement("div")
-      futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
-      //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
-      futureWeatherLeft2.style.display = "flex"
-      futureWeatherLeft2.style.justifyContent = "center"
-      futureWeather.appendChild(futureWeatherLeft2)
-
-      const futureimg = document.createElement("img");
-      futureimg.setAttribute("id", "futureimg");
-      futureimg.style.textAlign = "center";
-      futureimg.src = futureIconUrl;
-      futureWeatherLeft2.prepend(futureimg)
-      //futureWeatherLeft2.innerText = data.list[i].weather[0].description
-      console.log(data.list[i].weather[0].description)
-
-      const futureWeatherRight1 = document.createElement("div");
-      futureWeatherRight1.setAttribute("id", "futureWeatherRight1");
-      //futureWeatherRight1.style.backgroundColor = "#FFF7DF";
-      futureWeatherRight1.style.minWidth = "22%";
-      futureWeatherRight1.style.display = "flex";
-      futureWeatherRight1.style.justifyContent = "center";
-      futureWeatherRight1.style.alignItems = "center";
-      futureWeatherRight1.innerHTML =
-        Math.round(data.list[i].main.temp) + ` °C`;
-      futureWeather.appendChild(futureWeatherRight1);
-      const futureWeatherRight2 = document.createElement("div");
-      futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
-      //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
-      futureWeatherRight2.style.minWidth = "22%";
-      futureWeatherRight2.style.display = "flex";
-      futureWeatherRight2.style.justifyContent = "center";
-      futureWeatherRight2.style.alignItems = "center";
-      futureWeatherRight2.innerHTML =
-        Math.round(data.list[i].wind.speed) + ` m/s`;
-      futureWeather.appendChild(futureWeatherRight2);
-      futureWeather.style.backgroundColor = "#FFFFFF";
-      futureWeather.style.padding = "2px";
-      futureWeather.style.margin = "5px";
-      futureWeather.style.fontSize = "2.5vh";
-      futureWeather.style.display = "flex";
-      futureWeather.style.flexBasis = "0";
-      futureWeather.style.flexGrow = " 1";
-      futureWeather.style.flexShrink = " 1";
-      futureWeather.style.columnGap = "10px";
-      futureWeather.style.border = "0.1px solid #888888";
-      futureWeather.style.justifyContent = "space-evenly";
-      document.getElementById("container").appendChild(futureWeather);
-
-      //let naujasArray = data.map(data.list[i])
-      //console.log(naujasArray)
-      //let tempForecast = data.list[i].dt_txt
-      //console.log(tempForecast)
-      console.log(data.list[i]);
-    }
-  }
   } else {
     alert("kazkas negerai, patikrinti konsole");
     console.log("Kazkas negerai", data);
   }
+  function showWeather2days(indexReiksme, indexIlgis, indexPlius){    
+    for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
+    const futureWeatherIcon = data.list[i].weather[0].icon
+    const futureIconUrl =
+      "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
+      futureWeatherIcon +
+      ".svg";
+    futureWeatherIcon
+    const futureWeather = document.createElement("div")
+    const futureWeatherLeft1 = document.createElement("div")
+    futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
+    //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
+    futureWeatherLeft1.style.minWidth = "22%";
+    futureWeatherLeft1.style.fontSize = "2.5vh";
+    futureWeatherLeft1.innerHTML = data.list[i].dt_txt
+    futureWeather.appendChild(futureWeatherLeft1);
+
+    const futureWeatherLeft2 = document.createElement("div")
+    futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
+    //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
+    futureWeatherLeft2.style.display = "flex"
+    futureWeatherLeft2.style.justifyContent = "center"
+    futureWeather.appendChild(futureWeatherLeft2)
+
+    const futureimg = document.createElement("img");
+    futureimg.setAttribute("id", "futureimg");
+    futureimg.style.textAlign = "center";
+    futureimg.src = futureIconUrl;
+    futureWeatherLeft2.prepend(futureimg)
+    //futureWeatherLeft2.innerText = data.list[i].weather[0].description
+    console.log(data.list[i].weather[0].description)
+
+    const futureWeatherRight1 = document.createElement("div");
+    futureWeatherRight1.setAttribute("id", "futureWeatherRight1");
+    //futureWeatherRight1.style.backgroundColor = "#FFF7DF";
+    futureWeatherRight1.style.minWidth = "22%";
+    futureWeatherRight1.style.display = "flex";
+    futureWeatherRight1.style.justifyContent = "center";
+    futureWeatherRight1.style.alignItems = "center";
+    futureWeatherRight1.innerHTML =
+      Math.round(data.list[i].main.temp) + ` °C`;
+    futureWeather.appendChild(futureWeatherRight1);
+    const futureWeatherRight2 = document.createElement("div");
+    futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
+    //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
+    futureWeatherRight2.style.minWidth = "22%";
+    futureWeatherRight2.style.display = "flex";
+    futureWeatherRight2.style.justifyContent = "center";
+    futureWeatherRight2.style.alignItems = "center";
+    futureWeatherRight2.innerHTML =
+      Math.round(data.list[i].wind.speed) + ` m/s`;
+    futureWeather.appendChild(futureWeatherRight2);
+    futureWeather.style.backgroundColor = "#FFFFFF";
+    futureWeather.style.padding = "2px";
+    futureWeather.style.margin = "5px";
+    futureWeather.style.fontSize = "2.5vh";
+    futureWeather.style.display = "flex";
+    futureWeather.style.flexBasis = "0";
+    futureWeather.style.flexGrow = " 1";
+    futureWeather.style.flexShrink = " 1";
+    futureWeather.style.columnGap = "10px";
+    futureWeather.style.border = "0.1px solid #888888";
+    futureWeather.style.justifyContent = "space-evenly";
+    document.getElementById("container").appendChild(futureWeather);
+
+    //let naujasArray = data.map(data.list[i])
+    //console.log(naujasArray)
+    //let tempForecast = data.list[i].dt_txt
+    //console.log(tempForecast)
+    console.log(data.list[i]);
+  }
+}
 }
 function searchByLocation() {
   //console.log("searchByLocation()");

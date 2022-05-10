@@ -7,9 +7,13 @@ body{
 #personimg, #windimgurl{
     height: 5vh;
 }
-a{
+/* a{
     margin: 20px;
-}
+} */
 .input-append{
     margin: 20px;
+}
+.w3-bar.w3-light-grey.w3-border{
+    display: flex;
+    justify-content: center;
 }

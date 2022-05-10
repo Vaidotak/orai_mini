@@ -15,18 +15,28 @@
     </head>
 
     <body>
-
+        <div class="w3-container">
+        
+            <div class="w3-bar w3-light-grey w3-border">
+              <a href="http://www.aromatas.eu" class="w3-bar-item w3-button w3-mobile">Home</a>
+              <a href="https://github.com/Vaidotak/orai" class="w3-bar-item w3-button w3-mobile">Source</a>
+              <a href="#" class="w3-bar-item w3-button w3-mobile">Link 2</a>
+              <a class="w3-bar-item w3-button w3-mobile">Search for City, Place, or Country:</a>
+              <input type="text" id="city" class="w3-bar-item w3-input w3-white w3-mobile" placeholder="Search..." value="Klaipėda">
+              <button class="w3-bar-item w3-button w3-green w3-mobile" id="search">Go</button>
+              <div>
+                <select id="language" class="lang-sel w3-bar-item w3-input w3-white w3-mobile">
+                  <option value="lt">Lietuviškai</option>
+                  <option value="en">English</option>
+                  <option value="ua">Українська</option>
+                </select>
+              </div>
+            </div>
+          </div>
     <!-- <input type="text" placeholder="Miestas" id="city" value="Klaipėda">
         <input type="button" value="Ieškoti" id="search"> -->
 
-        <div class="input-append">
-            <input id="city" name="searchTerm" type="text" class="" value="Klaipėda"
-                style="padding-left: 14px;">
-            <button id="search" class="btn" type="submit" onclick="searchByLocation()"><span
-                    class="fa fa-search"></span></button>
-        </div>
-        <a href="http://www.aromatas.eu">Į pradžią</a>
-        <a href="https://github.com/Vaidotak/orai">Source code</a>   
+        <!--  -->
         <script src="script.js"></script>
         
     </body>
