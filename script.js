@@ -68,7 +68,7 @@ function showWeatherInDom(data) {
       container.setAttribute("id", "container");
       container.style.backgroundColor = "#FEEFC3";
       container.style.backgroundImage = "url('pattern8@2x.png')";
-      container.style.minWidth = "400px";
+      //container.style.minWidth = "100%";
       container.style.maxWidth = "60%";
       container.style.margin = "auto";
       container.style.marginTop = "5px"
@@ -89,6 +89,7 @@ function showWeatherInDom(data) {
       container.prepend(containerH1)
 
       const containerHeader = document.createElement("div");
+      containerHeader.setAttribute("id", "container-header");
       containerHeader.style.display = "flex";
       containerHeader.style.alignItems = "center";
       container.appendChild(containerHeader);
@@ -174,8 +175,8 @@ function showWeatherInDom(data) {
 
       // Temperatūra. Pagrindinis rodmuo
       const tempDabarBig = document.createElement("div");
-      //tempDabarBig.style.borderRadius = '10px'
-      tempDabarBig.style.fontSize = "13vh";
+      tempDabarBig.setAttribute("id", "temp-big");
+      tempDabarBig.style.fontSize = "11vh";
       tempDabarBig.style.padding = "2%";
       tempDabarBig.innerHTML = temperatura + ` ` + tempSign
       containerHeader.appendChild(tempDabarBig);
