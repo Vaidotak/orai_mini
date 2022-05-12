@@ -9,13 +9,31 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="style.css">
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-            </style>
+          @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+          </style>
         <title>Orai</title>
     </head>
 
     <body>
-        <div class="w3-container">
+      <div class="header">
+        <a href="http://www.aromatas.eu" class="logo">WeatherApp</a>
+          <div class="header-right">
+          <input type="text" id="city" placeholder="įrašyk miestą ar vietovę">  
+          <select id="language" class="lang-sel w3-bar-item w3-input w3-white w3-mobile">
+            <option value="lt">Lietuviškai</option>
+            <option value="en">English</option>
+            <option value="ua">Українська</option>
+          </select>
+          <select id="units" class="lang-sel w3-bar-item w3-input w3-white w3-mobile">
+            <option value="metric">Celsius (°C )</option>
+            <option value="imperial">Fahrenheit (°F)</option>
+            <option value="standart">Kelvin (°K)</option>
+          </select>
+          <button id="search">Go</button>
+        </div>
+      </div>
+      
+        <!-- <div class="w3-container">
         
             <div class="w3-bar w3-light-grey w3-border">
               <a href="http://www.aromatas.eu" class="w3-bar-item w3-button w3-mobile">Home</a>
@@ -31,12 +49,18 @@
                   <option value="ua">Українська</option>
                 </select>
               </div>
+              <div>
+                <select id="units" class="lang-sel w3-bar-item w3-input w3-white w3-mobile">
+                  <option value="metric">Celsius (°C )</option>
+                  <option value="imperial">Fahrenheit (°F)</option>
+                  <option value="standart">Kelvin (°K)</option>
+                </select>
+              </div>
             </div>
-          </div>
+          </div> -->
     <!-- <input type="text" placeholder="Miestas" id="city" value="Klaipėda">
         <input type="button" value="Ieškoti" id="search"> -->
-
-        <!--  -->
+      <!--  -->
         <script src="script.js"></script>
         
     </body>

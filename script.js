@@ -34,6 +34,7 @@ function getDataFromApi() {
       //paduodu gautus duomenis i funkcija
       showWeatherInDom(data);
     });
+
 }
 
 // funkcija kuri gauna duomenis ir juos atvaizduoja
@@ -54,17 +55,20 @@ function showWeatherInDom(data) {
       weatherIcon +
       ".svg";
 
-    dom(data);
+    domContainer(data)
 
-    function dom(data) {
+    showWeather2days(1, 20, 2)
+
+    function domContainer(data) {
       const container = document.createElement("div");
       container.setAttribute("id", "container");
       container.style.backgroundColor = "#FEEFC3";
+      container.style.backgroundImage = "url('pattern8@2x.png')";
       container.style.minWidth = "400px";
-      container.style.maxWidth = "50%";
+      container.style.maxWidth = "60%";
       container.style.margin = "auto";
       container.style.padding = "2%";
-      container.style.opacity = "80%";
+      container.style.opacity = "95%";
       container.style.fontSize = "3vh";
 
       if (document.getElementById("container")) {
@@ -84,7 +88,7 @@ function showWeatherInDom(data) {
 
       const infoWeather = document.createElement("H2");
       infoWeather.style.padding = "2%";
-      infoWeather.innerText = orasWeather;
+      infoWeather.innerHTML = orasWeather
       container.appendChild(infoWeather);
 
       // let htmlElements = ""
@@ -104,25 +108,25 @@ function showWeatherInDom(data) {
 
 
 
-      const population = document.createElement("div")
-      population.style.borderRadius = "10px";
+      // const population = document.createElement("div")
+      // population.style.borderRadius = "10px";
      
-      population.style.padding = "2%";
-      population.style.margin = "2%";
-      population.innerHTML = ` `+  data.city.population
-      container.appendChild(population);
+      // population.style.padding = "2%";
+      // population.style.margin = "2%";
+      // population.innerHTML = ` `+  data.city.population
+      // container.appendChild(population);
 
-      const personImg = document.createElement('img')
-      personImg.setAttribute('id', 'personimg')
-      const personImgUrl = 'person-solid.svg'
-      personImg.src = personImgUrl
-      population.prepend(personImg)
+      // const personImg = document.createElement('img')
+      // personImg.setAttribute('id', 'personimg')
+      // const personImgUrl = 'person-solid.svg'
+      // personImg.src = personImgUrl
+      // population.prepend(personImg)
 
       const windDiv = document.createElement("div")
       windDiv.style.borderRadius = "10px";
       windDiv.style.padding = "2%";
       windDiv.style.margin = "2%";
-      windDiv.innerHTML = ` `+ vejasSpeed + ` m/s`
+      windDiv.innerHTML = ` `+ vejasSpeed + ` ` + mS
       container.appendChild(windDiv);
 
       const windImg = document.createElement('img')
@@ -135,26 +139,27 @@ function showWeatherInDom(data) {
 
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
-      tempDabar.style.backgroundColor = "#AECBFA";
+      tempDabar.style.backgroundColor = "#FED68E";
       tempDabar.style.padding = "2%";
       tempDabar.style.margin = "2%";
+      tempDabar.style.textAlign = 'center'
       tempDabar.setAttribute("id", "tempnow");
       tempDabar.innerHTML =
-        `Juntamoji ` + orasFeelsLike + ` °C, oro slėgis ` + slegis + ` hPa`;
+        feelsSign + ` `+ orasFeelsLike + ` `+ tempSign + ``+ `,` + ` ` + langPressure + ` ` + slegis + ` hPa`;
       container.appendChild(tempDabar);
 
       const vejas = document.createElement("div");
       vejas.style.borderRadius = "10px";
-      vejas.style.backgroundColor = "#AECBFA";
+      vejas.style.backgroundColor = "#FED68E";
       vejas.style.padding = "2%";
       vejas.style.margin = "2%";
+      vejas.style.textAlign = 'center'
       vejas.innerHTML =
-        `Vėjo greitis ` +
+      windSpeed + ` ` +
         vejasSpeed +
-        ` m/s.` +
-        ` Gūsiais ` +
+        ` ` + mS + ``+ `,` + ` ` + gusT + ` ` +
         vejasGust +
-        ` m/s`;
+        ` ` + mS 
       container.appendChild(vejas);
 
       const img = document.createElement("img");
@@ -167,16 +172,15 @@ function showWeatherInDom(data) {
       //tempDabarBig.style.borderRadius = '10px'
       tempDabarBig.style.fontSize = "13vh";
       tempDabarBig.style.padding = "2%";
-      tempDabarBig.innerHTML = temperatura + ` °C `;
+      tempDabarBig.innerHTML = temperatura + ` ` + tempSign
       containerHeader.appendChild(tempDabarBig);
     }
-    showWeather2days(2, 40, 2)
-
-
+    
   } else {
     alert("kazkas negerai, patikrinti konsole");
     console.log("Kazkas negerai", data);
   }
+  
   function showWeather2days(indexReiksme, indexIlgis, indexPlius){    
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
     const futureWeatherIcon = data.list[i].weather[0].icon
@@ -217,7 +221,7 @@ function showWeatherInDom(data) {
     futureWeatherRight1.style.justifyContent = "center";
     futureWeatherRight1.style.alignItems = "center";
     futureWeatherRight1.innerHTML =
-      Math.round(data.list[i].main.temp) + ` °C`;
+      Math.round(data.list[i].main.temp) + ` ` + tempSign
     futureWeather.appendChild(futureWeatherRight1);
     const futureWeatherRight2 = document.createElement("div");
     futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
@@ -227,7 +231,7 @@ function showWeatherInDom(data) {
     futureWeatherRight2.style.justifyContent = "center";
     futureWeatherRight2.style.alignItems = "center";
     futureWeatherRight2.innerHTML =
-      Math.round(data.list[i].wind.speed) + ` m/s`;
+      Math.round(data.list[i].wind.speed) + ` ` + mS
     futureWeather.appendChild(futureWeatherRight2);
     futureWeather.style.backgroundColor = "#FFFFFF";
     futureWeather.style.padding = "2px";
@@ -249,7 +253,58 @@ function showWeatherInDom(data) {
     console.log(data.list[i]);
   }
 }
+
 }
-function searchByLocation() {
-  //console.log("searchByLocation()");
+let feelsSign = 'jutiminė'
+let windSpeed = 'vėjo greitis'
+let mS = 'm/s'
+let gusT = 'gūsiais'
+let tempSign = '°C'
+let windSpeedImperial = 'mph'
+let langPressure = 'slėgis'
+document.getElementById('language').addEventListener('change', function(){
+  lang = this.value
+  if(lang === 'en'){
+    feelsSign = 'feels like'
+    windSpeed = 'wind speed'
+    gusT = 'gust'
+    langPressure = 'pressure'
+  }
+  if(lang === 'ua'){
+    feelsSign = 'відчуває, як'
+    windSpeed = 'швидкість вітруd'
+    mS = 'м/с'
+    gusT = 'порив'
+    langPressure = 'тиск'
+  }
+  if(lang === 'lt'){
+    feelsSign = 'jutiminė'
+    windSpeed = 'vėjo greitis'
+    gusT = 'gūsiais'
+    langPressure = 'slėgis'
+  }
+})
+document.getElementById('units').addEventListener('change', function(){
+  units = this.value
+  if(units === 'imperial'){
+    tempSign = '°F'
+    mS = 'mph'
+  }
+  if(units === 'standart'){
+    tempSign = '°K'
+    mS = 'm/s'
+  }
+  if(units === 'metric'){
+    tempSign = '°C'
+    mS = 'm/s'
+  }
+})
+// function onTimerElapsed() {
+//   let myDiv = document.getElementById('theDiv');
+//   myDiv.style.display = myDiv.style.display === 'none' ? 'block' : 'none';
+// }
+function startTime(){
+  const date = new Date()
+  document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
+  setTimeout(function() {startTime()}, 1000) 
 }
