@@ -3,8 +3,10 @@ let lang = "lt"; // kalba
 let units = "metric"; // naudojama metrine sistema
 let city = ""; // miestas irasytas inpute
 
-let cityName = document.getElementById("city");
-let searchButton = document.getElementById("search");
+let cityName = document.getElementById("city")
+let searchButton = document.getElementById("search")
+
+cityName.value = localStorage.getItem('miestas')
 
 // uzdedu click eventa ant search mygtuko
 searchButton.addEventListener("click", getDataFromApi);
@@ -13,6 +15,8 @@ searchButton.addEventListener("click", getDataFromApi);
 function getDataFromApi() {
   // paimu irasyta miesta is input ir nustatau
   city = cityName.value;
+  localStorage.setItem("miestas", city)
+  
 
   // url yra skirtas pasiimti duomenis is api
   let url =
@@ -97,7 +101,7 @@ function showWeatherInDom(data) {
       // let htmlElements = ""
       //   for (let i = 0; i < 1; i++) {
       //   htmlElements += '<div class="weather"></div>'
-        
+
       //   htmlElements += '<div class="pressure"></div>'
       //   htmlElements += '<div class="wind"></div>'
       //   }
@@ -113,7 +117,7 @@ function showWeatherInDom(data) {
 
       // const population = document.createElement("div")
       // population.style.borderRadius = "10px";
-     
+
       // population.style.padding = "2%";
       // population.style.margin = "2%";
       // population.innerHTML = ` `+  data.city.population
@@ -146,7 +150,7 @@ function showWeatherInDom(data) {
       tempDabar.style.textAlign = 'center'
       tempDabar.setAttribute("id", "tempnow");
       tempDabar.innerHTML =
-        feelsSign + ` `+ orasFeelsLike + ` `+ tempSign + ``+ `,` + ` ` + langPressure + ` ` + slegis + ` hPa`;
+        feelsSign + ` ` + orasFeelsLike + ` ` + tempSign + `` + `,` + ` ` + langPressure + ` ` + slegis + ` hPa`;
       container.appendChild(tempDabar);
 
       const vejas = document.createElement("div");
@@ -156,11 +160,11 @@ function showWeatherInDom(data) {
       vejas.style.margin = "2%";
       vejas.style.textAlign = 'center'
       vejas.innerHTML =
-      windSpeed + ` ` +
+        windSpeed + ` ` +
         vejasSpeed +
-        ` ` + mS + ``+ `,` + ` ` + gusT + ` ` +
+        ` ` + mS + `` + `,` + ` ` + gusT + ` ` +
         vejasGust +
-        ` ` + mS 
+        ` ` + mS
       container.appendChild(vejas);
 
       const img = document.createElement("img");
@@ -176,84 +180,84 @@ function showWeatherInDom(data) {
       tempDabarBig.innerHTML = temperatura + ` ` + tempSign
       containerHeader.appendChild(tempDabarBig);
     }
-    
+
   } else {
     alert("kazkas negerai, patikrinti konsole");
     console.log("Kazkas negerai", data);
   }
-  
-  function showWeather2days(indexReiksme, indexIlgis, indexPlius){    
+
+  function showWeather2days(indexReiksme, indexIlgis, indexPlius) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
-    const futureWeatherIcon = data.list[i].weather[0].icon
-    const futureIconUrl =
-      "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
-      futureWeatherIcon +
-      ".svg";
-    futureWeatherIcon
-    const futureWeather = document.createElement("div")
-    const futureWeatherLeft1 = document.createElement("div")
-    futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
-    //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
-    futureWeatherLeft1.style.minWidth = "22%";
-    futureWeatherLeft1.style.fontSize = "2.5vh";
-    futureWeatherLeft1.innerHTML = data.list[i].dt_txt
-    futureWeather.appendChild(futureWeatherLeft1);
+      const futureWeatherIcon = data.list[i].weather[0].icon
+      const futureIconUrl =
+        "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
+        futureWeatherIcon +
+        ".svg";
+      futureWeatherIcon
+      const futureWeather = document.createElement("div")
+      const futureWeatherLeft1 = document.createElement("div")
+      futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
+      //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
+      futureWeatherLeft1.style.minWidth = "22%";
+      futureWeatherLeft1.style.fontSize = "2.5vh";
+      futureWeatherLeft1.innerHTML = data.list[i].dt_txt
+      futureWeather.appendChild(futureWeatherLeft1);
 
-    const futureWeatherLeft2 = document.createElement("div")
-    futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
-    //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
-    futureWeatherLeft2.style.display = "flex"
-    futureWeatherLeft2.style.justifyContent = "center"
-    futureWeather.appendChild(futureWeatherLeft2)
+      const futureWeatherLeft2 = document.createElement("div")
+      futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
+      //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
+      futureWeatherLeft2.style.display = "flex"
+      futureWeatherLeft2.style.justifyContent = "center"
+      futureWeather.appendChild(futureWeatherLeft2)
 
-    const futureimg = document.createElement("img");
-    futureimg.setAttribute("id", "futureimg");
-    futureimg.style.textAlign = "center";
-    futureimg.src = futureIconUrl;
-    futureWeatherLeft2.prepend(futureimg)
-    //futureWeatherLeft2.innerText = data.list[i].weather[0].description
-    console.log(data.list[i].weather[0].description)
+      const futureimg = document.createElement("img");
+      futureimg.setAttribute("id", "futureimg");
+      futureimg.style.textAlign = "center";
+      futureimg.src = futureIconUrl;
+      futureWeatherLeft2.prepend(futureimg)
+      //futureWeatherLeft2.innerText = data.list[i].weather[0].description
+      console.log(data.list[i].weather[0].description)
 
-    const futureWeatherRight1 = document.createElement("div");
-    futureWeatherRight1.setAttribute("id", "futureWeatherRight1");
-    //futureWeatherRight1.style.backgroundColor = "#FFF7DF";
-    futureWeatherRight1.style.minWidth = "22%";
-    futureWeatherRight1.style.display = "flex";
-    futureWeatherRight1.style.justifyContent = "center";
-    futureWeatherRight1.style.alignItems = "center";
-    futureWeatherRight1.innerHTML =
-      Math.round(data.list[i].main.temp) + ` ` + tempSign
-    futureWeather.appendChild(futureWeatherRight1);
-    const futureWeatherRight2 = document.createElement("div");
-    futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
-    //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
-    futureWeatherRight2.style.minWidth = "22%";
-    futureWeatherRight2.style.display = "flex";
-    futureWeatherRight2.style.justifyContent = "center";
-    futureWeatherRight2.style.alignItems = "center";
-    futureWeatherRight2.innerHTML =
-      Math.round(data.list[i].wind.speed) + ` ` + mS
-    futureWeather.appendChild(futureWeatherRight2);
-    futureWeather.style.backgroundColor = "#FFFFFF";
-    futureWeather.style.padding = "2px";
-    futureWeather.style.margin = "5px";
-    futureWeather.style.fontSize = "2.5vh";
-    futureWeather.style.display = "flex";
-    futureWeather.style.flexBasis = "0";
-    futureWeather.style.flexGrow = " 1";
-    futureWeather.style.flexShrink = " 1";
-    futureWeather.style.columnGap = "10px";
-    futureWeather.style.border = "0.1px solid #888888";
-    futureWeather.style.justifyContent = "space-evenly";
-    document.getElementById("container").appendChild(futureWeather);
+      const futureWeatherRight1 = document.createElement("div");
+      futureWeatherRight1.setAttribute("id", "futureWeatherRight1");
+      //futureWeatherRight1.style.backgroundColor = "#FFF7DF";
+      futureWeatherRight1.style.minWidth = "22%";
+      futureWeatherRight1.style.display = "flex";
+      futureWeatherRight1.style.justifyContent = "center";
+      futureWeatherRight1.style.alignItems = "center";
+      futureWeatherRight1.innerHTML =
+        Math.round(data.list[i].main.temp) + ` ` + tempSign
+      futureWeather.appendChild(futureWeatherRight1);
+      const futureWeatherRight2 = document.createElement("div");
+      futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
+      //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
+      futureWeatherRight2.style.minWidth = "22%";
+      futureWeatherRight2.style.display = "flex";
+      futureWeatherRight2.style.justifyContent = "center";
+      futureWeatherRight2.style.alignItems = "center";
+      futureWeatherRight2.innerHTML =
+        Math.round(data.list[i].wind.speed) + ` ` + mS
+      futureWeather.appendChild(futureWeatherRight2);
+      futureWeather.style.backgroundColor = "#FFFFFF";
+      futureWeather.style.padding = "2px";
+      futureWeather.style.margin = "5px";
+      futureWeather.style.fontSize = "2.5vh";
+      futureWeather.style.display = "flex";
+      futureWeather.style.flexBasis = "0";
+      futureWeather.style.flexGrow = " 1";
+      futureWeather.style.flexShrink = " 1";
+      futureWeather.style.columnGap = "10px";
+      futureWeather.style.border = "0.1px solid #888888";
+      futureWeather.style.justifyContent = "space-evenly";
+      document.getElementById("container").appendChild(futureWeather);
 
-    //let naujasArray = data.map(data.list[i])
-    //console.log(naujasArray)
-    //let tempForecast = data.list[i].dt_txt
-    //console.log(tempForecast)
-    console.log(data.list[i]);
+      //let naujasArray = data.map(data.list[i])
+      //console.log(naujasArray)
+      //let tempForecast = data.list[i].dt_txt
+      //console.log(tempForecast)
+      console.log(data.list[i]);
+    }
   }
-}
 
 }
 let feelsSign = 'jutiminė'
@@ -263,39 +267,39 @@ let gusT = 'gūsiais'
 let tempSign = '°C'
 let windSpeedImperial = 'mph'
 let langPressure = 'slėgis'
-document.getElementById('language').addEventListener('change', function(){
+document.getElementById('language').addEventListener('change', function () {
   lang = this.value
-  if(lang === 'en'){
+  if (lang === 'en') {
     feelsSign = 'feels like'
     windSpeed = 'wind speed'
     gusT = 'gust'
     langPressure = 'pressure'
   }
-  if(lang === 'ua'){
+  if (lang === 'ua') {
     feelsSign = 'відчуває, як'
     windSpeed = 'швидкість вітруd'
     mS = 'м/с'
     gusT = 'порив'
     langPressure = 'тиск'
   }
-  if(lang === 'lt'){
+  if (lang === 'lt') {
     feelsSign = 'jutiminė'
     windSpeed = 'vėjo greitis'
     gusT = 'gūsiais'
     langPressure = 'slėgis'
   }
 })
-document.getElementById('units').addEventListener('change', function(){
+document.getElementById('units').addEventListener('change', function () {
   units = this.value
-  if(units === 'imperial'){
+  if (units === 'imperial') {
     tempSign = '°F'
     mS = 'mph'
   }
-  if(units === 'standart'){
+  if (units === 'standart') {
     tempSign = '°K'
     mS = 'm/s'
   }
-  if(units === 'metric'){
+  if (units === 'metric') {
     tempSign = '°C'
     mS = 'm/s'
   }
@@ -309,3 +313,8 @@ document.getElementById('units').addEventListener('change', function(){
 //   document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
 //   setTimeout(function() {startTime()}, 1000) 
 // }
+labasVakaras('Vytenis', 'grupiokai')
+
+function labasVakaras(pirmasNarys, antrasNarys) {
+  console.log(pirmasNarys + ` ` + ` ir ` + antrasNarys + ` labas vakaras!`)
+}
