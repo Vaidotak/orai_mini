@@ -67,6 +67,9 @@ function showWeatherInDom(data) {
       container.style.minWidth = "400px";
       container.style.maxWidth = "60%";
       container.style.margin = "auto";
+      container.style.marginTop = "5px"
+      container.style.marginBottom = "5px"
+      container.style.borderRadius = "10px"
       container.style.padding = "2%";
       container.style.opacity = "95%";
       container.style.fontSize = "3vh";
@@ -122,20 +125,18 @@ function showWeatherInDom(data) {
       // personImg.src = personImgUrl
       // population.prepend(personImg)
 
-      const windDiv = document.createElement("div")
-      windDiv.style.borderRadius = "10px";
-      windDiv.style.padding = "2%";
-      windDiv.style.margin = "2%";
-      windDiv.innerHTML = ` `+ vejasSpeed + ` ` + mS
-      container.appendChild(windDiv);
+      // const windDiv = document.createElement("div")
+      // windDiv.style.borderRadius = "10px";
+      // windDiv.style.padding = "2%";
+      // windDiv.style.margin = "2%";
+      // windDiv.innerHTML = ` `+ vejasSpeed + ` ` + mS
+      // container.appendChild(windDiv);
 
-      const windImg = document.createElement('img')
-      windImg.setAttribute('id', 'windimgurl')
-      const windimgurl = 'wind-solid.svg'
-      windImg.src = windimgurl
-      windDiv.prepend(windImg)
-
-      const PressureImgUrl = document.createElement('img')
+      // const windImg = document.createElement('img')
+      // windImg.setAttribute('id', 'windimgurl')
+      // const windimgurl = 'wind-solid.svg'
+      // windImg.src = windimgurl
+      // windDiv.prepend(windImg)
 
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
@@ -300,11 +301,11 @@ document.getElementById('units').addEventListener('change', function(){
   }
 })
 // function onTimerElapsed() {
-//   let myDiv = document.getElementById('theDiv');
+//   let myDiv = document.getElementById("city");
 //   myDiv.style.display = myDiv.style.display === 'none' ? 'block' : 'none';
 // }
-function startTime(){
-  const date = new Date()
-  document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
-  setTimeout(function() {startTime()}, 1000) 
-}
+// function startTime(){
+//   const date = new Date()
+//   document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
+//   setTimeout(function() {startTime()}, 1000) 
+// }
