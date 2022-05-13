@@ -1,24 +1,27 @@
-let apiKey = "3caf575b23a52e649f756f432846ed3e"; // jusu api key
+let apiKey = "3caf575b23a52e649f756f432846ed3e"; // mano api key
 let lang = "lt"; // kalba
-let units = "metric"; // naudojama metrine sistema
-let city = ""; // miestas irasytas inpute
+let units = "metric"; // naudojama metrinė sistema
+let city = ""; // miestas įrašytas inpute
 
 let cityName = document.getElementById("city")
 let searchButton = document.getElementById("search")
 
+// iš local storage paimu vertę ir įdedu į inputą
 cityName.value = localStorage.getItem('miestas')
 
-// uzdedu click eventa ant search mygtuko
+// uždedu click eventą ant search mygtuko
 searchButton.addEventListener("click", getDataFromApi);
 
-// funkcija kuri gauna duomenis is API
+// funkcija, kuri gauna duomenis iš API
 function getDataFromApi() {
-  // paimu irasyta miesta is input ir nustatau
+  // paimu įrašytą miestą iš input ir nustatau
   city = cityName.value;
+
+  // išsaugau įvestą miestą į local storage
   localStorage.setItem("miestas", city)
   
 
-  // url yra skirtas pasiimti duomenis is api
+  // url yra skirtas pasiimti duomenis iš api
   let url =
     "https://api.openweathermap.org/data/2.5/forecast?" +
     "q=" +
@@ -30,23 +33,23 @@ function getDataFromApi() {
     "&appid=" +
     apiKey;
 
-  // su fetch funkcija pasiimu duomenis is api (asinchronine funkcija)
+  // su fetch funkcija pasiimu duomenis iš api (asinchroninė funkcija)
   fetch(url)
     .then((response) => response.json())
-    // data => jusu kodas
+    // data => mano kodas
     .then(function (data) {
-      //paduodu gautus duomenis i funkcija
+      //paduodu gautus duomenis į funkciją
       showWeatherInDom(data);
     });
 
 }
 
-// funkcija kuri gauna duomenis ir juos atvaizduoja
+// funkcija, kuri gauna duomenis ir juos atvaizduoja
 function showWeatherInDom(data) {
   // tikrinu ar mano response yra geras
   if (data.cod === "200") {
-    // data tai duomenys, kuriuos mes padavem i funkcija
-    // cia atvaizduojam gautus duomenis DOM'e
+    // data tai duomenys, kuriuos mes padavėm į funkciją
+    // čia atvaizduojam gautus duomenis DOM'e
     const temperatura = Math.round(data.list[0].main.temp);
     const vejasSpeed = Math.round(data.list[0].wind.speed);
     const vejasGust = Math.round(data.list[0].wind.gust);
@@ -59,8 +62,10 @@ function showWeatherInDom(data) {
       weatherIcon +
       ".svg";
 
+    // paleidžiu pagrindinį konteinerį
     domContainer(data)
 
+    // sukuriami papildomi blokai ateities temperatūrai parodyti
     showWeather2days(1, 20, 2)
 
     function domContainer(data) {
@@ -78,6 +83,7 @@ function showWeatherInDom(data) {
       container.style.opacity = "95%";
       container.style.fontSize = "3vh";
 
+      // prieš appendinant ištrinamas ankstesnis sukurtas konteineris
       if (document.getElementById("container")) {
         document.getElementById("container").remove();
       }
