@@ -152,21 +152,22 @@ function showWeatherInDom(data) {
 
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
-      tempDabar.style.backgroundColor = "#FED68E";
+      tempDabar.style.backgroundColor = "#f5f5f5";
       tempDabar.style.padding = "2%";
-      tempDabar.style.margin = "2%";
-      tempDabar.style.textAlign = 'center'
+      tempDabar.style.marginBottom = "2%";
+      tempDabar.style.textAlign = 'start'
       tempDabar.setAttribute("id", "tempnow");
       tempDabar.innerHTML =
         feelsSign + ` ` + orasFeelsLike + ` ` + tempSign + `` + `,` + ` ` + langPressure + ` ` + slegis + ` hPa`;
       container.appendChild(tempDabar);
 
       const vejas = document.createElement("div");
+      vejas.className = "vejas";
       vejas.style.borderRadius = "10px";
-      vejas.style.backgroundColor = "#FED68E";
+      vejas.style.backgroundColor = "#f5f5f5";
       vejas.style.padding = "2%";
-      vejas.style.margin = "2%";
-      vejas.style.textAlign = 'center'
+      vejas.style.marginBottom = "2%";
+      vejas.style.textAlign = 'start'
       vejas.innerHTML =
         windSpeed + ` ` +
         vejasSpeed +
@@ -176,7 +177,9 @@ function showWeatherInDom(data) {
       container.appendChild(vejas);
 
       const img = document.createElement("img");
+      img.className = "top-img"
       img.style.textAlign = "center";
+      //img.style.width = '20vw'
       img.src = iconUrl;
       containerHeader.prepend(img);
 
@@ -203,6 +206,7 @@ function showWeatherInDom(data) {
         ".svg";
       futureWeatherIcon
       const futureWeather = document.createElement("div")
+      futureWeather.className = "future-weather";
       const futureWeatherLeft1 = document.createElement("div")
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
       //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
@@ -326,9 +330,9 @@ document.getElementById('units').addEventListener('change', function () {
 // function labasVakaras(pirmasNarys, antrasNarys) {
 //   console.log(pirmasNarys + ` ` + ` ir ` + antrasNarys + ` labas vakaras!`)
 // }
-let div = document.createElement('div');
-        div.className = "alert";
-        div.innerHTML = "Labas! Paieškos laukelyje įvesk miestą, kurio temperatūrą nori sužinoti";
+let infodiv = document.createElement('div');
+  infodiv.className = "alert";
+  infodiv.innerHTML = "Labas! Paieškos laukelyje įvesk miestą, kurio temperatūrą nori sužinoti";
       
-        document.body.append(div);
-        setTimeout(() => div.remove(), 3000);
+        document.body.append(infodiv);
+        setTimeout(() => infodiv.remove(), 3000);
