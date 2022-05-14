@@ -66,7 +66,7 @@ function showWeatherInDom(data) {
     domContainer(data)
 
     // sukuriami papildomi blokai ateities temperatūrai parodyti
-    showWeather2days(1, 20, 2)
+    showWeather2days(1, 40, 2)
 
     function domContainer(data) {
       const container = document.createElement("div");
@@ -97,6 +97,7 @@ function showWeatherInDom(data) {
       const containerHeader = document.createElement("div");
       containerHeader.setAttribute("id", "container-header");
       containerHeader.style.display = "flex";
+      //containerHeader.style.fontSize = '50px'
       containerHeader.style.alignItems = "center";
       container.appendChild(containerHeader);
 
@@ -182,7 +183,7 @@ function showWeatherInDom(data) {
       // Temperatūra. Pagrindinis rodmuo
       const tempDabarBig = document.createElement("div");
       tempDabarBig.setAttribute("id", "temp-big");
-      tempDabarBig.style.fontSize = "11vh";
+      tempDabarBig.style.fontSize = "15vh";
       tempDabarBig.style.padding = "2%";
       tempDabarBig.innerHTML = temperatura + ` ` + tempSign
       containerHeader.appendChild(tempDabarBig);
@@ -320,8 +321,14 @@ document.getElementById('units').addEventListener('change', function () {
 //   document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
 //   setTimeout(function() {startTime()}, 1000) 
 // }
-labasVakaras('Vytenis', 'grupiokai')
+// labasVakaras('Vytenis', 'grupiokai')
 
-function labasVakaras(pirmasNarys, antrasNarys) {
-  console.log(pirmasNarys + ` ` + ` ir ` + antrasNarys + ` labas vakaras!`)
-}
+// function labasVakaras(pirmasNarys, antrasNarys) {
+//   console.log(pirmasNarys + ` ` + ` ir ` + antrasNarys + ` labas vakaras!`)
+// }
+let div = document.createElement('div');
+        div.className = "alert";
+        div.innerHTML = "Labas! Paieškos laukelyje įvesk miestą, kurio temperatūrą nori sužinoti";
+      
+        document.body.append(div);
+        setTimeout(() => div.remove(), 3000);
