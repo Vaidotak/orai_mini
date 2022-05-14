@@ -67,7 +67,6 @@ button {
 }
 
 .header a:hover {
-  
   color: rgba(52, 47, 47, 0.489);
 }
 
@@ -211,22 +210,22 @@ button {
   .top-img {
     width: 50vw;
   }
-  .header a.logo{
+  .header a.logo {
     margin-bottom: 4%;
   }
-.header a,
-select,
-input,
-button {
-  color: rgba(0, 0, 0, 0.722);
-  text-align: center;
-  padding: 5px;
-  margin-bottom: 2%;
-  text-decoration: none;
-  font-size: 2vh;
-  line-height: 10px;
-  border-radius: 5px;
-}
+  .header a,
+  select,
+  input,
+  button {
+    color: rgba(0, 0, 0, 0.722);
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 2%;
+    text-decoration: none;
+    font-size: 2vh;
+    line-height: 10px;
+    border-radius: 5px;
+  }
 }
 @media screen and (min-width: 900px) {
   #container {
