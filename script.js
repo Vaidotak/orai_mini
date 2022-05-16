@@ -199,6 +199,11 @@ function showWeatherInDom(data) {
 
   function showWeather2days(indexReiksme, indexIlgis, indexPlius) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
+
+      let tempForecast = data.list[i].dt_txt
+      //console.log(data.list[i].dt_txt)
+      //console.log((data.list[i].dt_txt).moment().format('dddd'));
+
       const futureWeatherIcon = data.list[i].weather[0].icon
       const futureIconUrl =
         "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
@@ -212,7 +217,7 @@ function showWeatherInDom(data) {
       //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
       futureWeatherLeft1.style.minWidth = "22%";
       futureWeatherLeft1.style.fontSize = "2.5vh";
-      futureWeatherLeft1.innerHTML = data.list[i].dt_txt
+      futureWeatherLeft1.innerHTML = tempForecast
       futureWeather.appendChild(futureWeatherLeft1);
 
       const futureWeatherLeft2 = document.createElement("div")
@@ -265,9 +270,7 @@ function showWeatherInDom(data) {
 
       //let naujasArray = data.map(data.list[i])
       //console.log(naujasArray)
-      //let tempForecast = data.list[i].dt_txt
-      //console.log(tempForecast)
-      console.log(data.list[i]);
+
     }
   }
 
@@ -336,3 +339,42 @@ let infodiv = document.createElement('div');
       
         document.body.append(infodiv);
         setTimeout(() => infodiv.remove(), 3000);
+
+
+        function createDate(dt, type) {
+          let day = new Date(dt * 1000);
+          if (type == "long") {
+              let options = {
+                  weekday: "long",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+              };
+              console.log(day.toLocaleString("lt-LT", options))
+              return day.toLocaleString("lt-LT", options)
+              
+          } else {
+              return day.toLocaleString("lt-LT", { weekday: "long" })
+          }
+      }
+
+
+
+      function Cars(marke, spalva, duruSkaicius) {
+        this.marke = marke
+        this.spalva = spalva
+        this.duruSkaicius = duruSkaicius
+        this.raktas = function(raktasM){
+          let secretKey = raktasM
+          console.log(secretKey)
+        }
+        
+      }
+    
+      const myCar = new Cars('Toyota', 'juoda', 5)
+      const myCar1 = new Cars('Audi', 'balta', 3)
+      const myCar3 = new Cars('BMW', 'Žalia', 5)
+
+      myCar.raktas(85858 + `e6590487i`)
+      myCar1.raktas(9 + `e6590487i`)
+      myCar3.raktas(3843374 + `e6590487i`)

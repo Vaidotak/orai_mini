@@ -201,6 +201,7 @@ button {
   #tempnow,
   .vejas {
     max-width: 95%;
+    border-style: ridge;
   }
   #container-header {
     display: flex;
