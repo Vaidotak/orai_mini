@@ -9,6 +9,11 @@ let searchButton = document.getElementById("search")
 // iš local storage paimu vertę ir įdedu į inputą
 cityName.value = localStorage.getItem('miestas')
 
+if(localStorage.getItem('miestas') != null){
+  if(localStorage.getItem('miestas').length){
+    getDataFromApi()
+  }
+}
 // uždedu click eventą ant search mygtuko
 searchButton.addEventListener("click", getDataFromApi);
 
