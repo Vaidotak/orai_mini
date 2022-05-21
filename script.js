@@ -20,8 +20,8 @@ searchButton.addEventListener("click", getDataFromApi);
 // funkcija, kuri gauna duomenis iš API
 function getDataFromApi() {
   // paimu įrašytą miestą iš input ir nustatau
-  city = cityName.value;
-
+  city = cityName.value.trimEnd();
+  
   // išsaugau įvestą miestą į local storage
   localStorage.setItem("miestas", city)
   
@@ -206,7 +206,7 @@ function showWeatherInDom(data) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
 
       let tempForecast = data.list[i].dt_txt
-      //console.log(data.list[i].dt_txt)
+      console.log(data.list[i])
       //console.log((data.list[i].dt_txt).moment().format('dddd'));
 
       const futureWeatherIcon = data.list[i].weather[0].icon
@@ -365,21 +365,21 @@ let infodiv = document.createElement('div');
 
 
 
-      function Cars(marke, spalva, duruSkaicius) {
-        this.marke = marke
-        this.spalva = spalva
-        this.duruSkaicius = duruSkaicius
-        this.raktas = function(raktasM){
-          let secretKey = raktasM
-          console.log(secretKey)
-        }
+      // function Cars(marke, spalva, duruSkaicius) {
+      //   this.marke = marke
+      //   this.spalva = spalva
+      //   this.duruSkaicius = duruSkaicius
+      //   this.raktas = function(raktasM){
+      //     let secretKey = raktasM
+      //     console.log(secretKey)
+      //   }
         
-      }
+      // }
     
-      const myCar = new Cars('Toyota', 'juoda', 5)
-      const myCar1 = new Cars('Audi', 'balta', 3)
-      const myCar3 = new Cars('BMW', 'Žalia', 5)
+      // const myCar = new Cars('Toyota', 'juoda', 5)
+      // const myCar1 = new Cars('Audi', 'balta', 3)
+      // const myCar3 = new Cars('BMW', 'Žalia', 5)
 
-      myCar.raktas(85858 + `e6590487i`)
-      myCar1.raktas(9 + `e6590487i`)
-      myCar3.raktas(3843374 + `e6590487i`)
+      // myCar.raktas(85858 + `e6590487i`)
+      // myCar1.raktas(9 + `e6590487i`)
+      // myCar3.raktas(3843374 + `e6590487i`)
