@@ -163,7 +163,7 @@ function showWeatherInDom(data) {
       // Temperatūra. Pagrindinis rodmuo
       const tempDabarBig = document.createElement("div");
       tempDabarBig.setAttribute("id", "temp-big");
-      tempDabarBig.style.fontSize = "15vh";
+      //tempDabarBig.style.fontSize = "15vh";
       tempDabarBig.style.padding = "2%";
       tempDabarBig.classList.add('pagrindine-temperatura')
       tempDabarBig.innerHTML = temperatura + ` ` + tempSign
