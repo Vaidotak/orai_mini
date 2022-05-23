@@ -111,50 +111,6 @@ function showWeatherInDom(data) {
       infoWeather.innerHTML = orasWeather
       container.appendChild(infoWeather);
 
-      // let htmlElements = ""
-      //   for (let i = 0; i < 1; i++) {
-      //   htmlElements += '<div class="weather"></div>'
-
-      //   htmlElements += '<div class="pressure"></div>'
-      //   htmlElements += '<div class="wind"></div>'
-      //   }
-      //   let pirmas = document.getElementsByClassName('weather')
-      //   console.log(document.getElementsByClassName('weather'))
-      //   console.log(orasWeather)
-      //   document.getElementsByClassName('weather').innerHTML = orasWeather
-      //   let containerDiv = document.getElementById("container")
-      //   console.log(document.getElementById("container"))
-      //   containerHeader.innerHTML = htmlElements
-
-
-
-      // const population = document.createElement("div")
-      // population.style.borderRadius = "10px";
-
-      // population.style.padding = "2%";
-      // population.style.margin = "2%";
-      // population.innerHTML = ` `+  data.city.population
-      // container.appendChild(population);
-
-      // const personImg = document.createElement('img')
-      // personImg.setAttribute('id', 'personimg')
-      // const personImgUrl = 'person-solid.svg'
-      // personImg.src = personImgUrl
-      // population.prepend(personImg)
-
-      // const windDiv = document.createElement("div")
-      // windDiv.style.borderRadius = "10px";
-      // windDiv.style.padding = "2%";
-      // windDiv.style.margin = "2%";
-      // windDiv.innerHTML = ` `+ vejasSpeed + ` ` + mS
-      // container.appendChild(windDiv);
-
-      // const windImg = document.createElement('img')
-      // windImg.setAttribute('id', 'windimgurl')
-      // const windimgurl = 'wind-solid.svg'
-      // windImg.src = windimgurl
-      // windDiv.prepend(windImg)
-
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
       tempDabar.style.backgroundColor = "#f5f5f5";
@@ -206,9 +162,10 @@ function showWeatherInDom(data) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
 
       //let dateFromApi = '2022-02-02 21:00:00';
-      let formatdateString = 'MM-DD HH:mm';
+      let formatdateString = 'MMMM DD, dddd HH:mm';
+
       //let momentDate = moment(dateFromApi, 'YYYY-MM-DD HH:mm:ss').format(formatdateString)
-      let trueDate = moment(data.list[i].dt_txt).format(formatdateString)
+      let trueDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateString)
       //console.log(momentDate)
       
       //let tempForecast = data.list[i].dt_txt
