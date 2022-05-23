@@ -71,7 +71,7 @@ function showWeatherInDom(data) {
     domContainer(data)
 
     // sukuriami papildomi blokai ateities temperatūrai parodyti
-    showWeather2days(1, 40, 2)
+    showWeather2days(1, 20, 2)
 
     function domContainer(data) {
       const container = document.createElement("div");
@@ -84,6 +84,8 @@ function showWeatherInDom(data) {
       container.style.marginTop = "5px"
       container.style.marginBottom = "5px"
       container.style.borderRadius = "10px"
+      container.style.fontFamily = 'fantasy'
+      container.style.color = 'dimgray'
       container.style.padding = "2%";
       container.style.opacity = "95%";
       container.style.fontSize = "3vh";
@@ -97,8 +99,16 @@ function showWeatherInDom(data) {
 
       const containerH1 = document.createElement("H1")
       containerH1.innerText = data.city.name.toUpperCase()
+      containerH1.style.fontFamily = 'fantasy'
+      //containerH1.style.color = 'dimgray'
       container.prepend(containerH1)
 
+      // const containerH3 = document.createElement("H3")
+      // containerH3.innerHTML = trueNowDate
+      // let trueNowDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateStringNow)
+      // let formatdateStringNow = 'dddd';
+      // container.append(containerH3)
+      
       const containerHeader = document.createElement("div");
       containerHeader.setAttribute("id", "container-header");
       containerHeader.style.display = "flex";
@@ -108,12 +118,16 @@ function showWeatherInDom(data) {
 
       const infoWeather = document.createElement("H2");
       infoWeather.style.padding = "2%";
+      infoWeather.style.fontFamily = 'fantasy'
+      //infoWeather.style.color = 'dimgray'
       infoWeather.innerHTML = orasWeather
       container.appendChild(infoWeather);
 
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
       tempDabar.style.backgroundColor = "#f5f5f5";
+      tempDabar.style.fontFamily = 'fantasy'
+      //tempDabar.style.color = 'grey'
       tempDabar.style.padding = "2%";
       tempDabar.style.marginBottom = "2%";
       tempDabar.style.textAlign = 'start'
@@ -126,6 +140,8 @@ function showWeatherInDom(data) {
       vejas.className = "vejas";
       vejas.style.borderRadius = "10px";
       vejas.style.backgroundColor = "#f5f5f5";
+      vejas.style.fontFamily = 'fantasy'
+      vejas.style.color = 'grey'
       vejas.style.padding = "2%";
       vejas.style.marginBottom = "2%";
       vejas.style.textAlign = 'start'
@@ -149,6 +165,7 @@ function showWeatherInDom(data) {
       tempDabarBig.setAttribute("id", "temp-big");
       tempDabarBig.style.fontSize = "15vh";
       tempDabarBig.style.padding = "2%";
+      tempDabarBig.classList.add('pagrindine-temperatura')
       tempDabarBig.innerHTML = temperatura + ` ` + tempSign
       containerHeader.appendChild(tempDabarBig);
     }
@@ -162,13 +179,10 @@ function showWeatherInDom(data) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
 
       //let dateFromApi = '2022-02-02 21:00:00';
-      let formatdateString = 'MMMM DD, dddd HH:mm';
-
-      //let momentDate = moment(dateFromApi, 'YYYY-MM-DD HH:mm:ss').format(formatdateString)
-      let trueDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateString)
-      //console.log(momentDate)
+      let formatdateString = 'dddd, MMMM DD HH:mm';
+      let formatdateString1 = 'LLL';
+      let trueFutureDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateString1)
       
-      //let tempForecast = data.list[i].dt_txt
       console.log(data.list[i])
       console.log(moment(data.list[i].dt_txt).format(formatdateString))
 
@@ -182,9 +196,11 @@ function showWeatherInDom(data) {
       futureWeather.className = "future-weather";
       const futureWeatherLeft1 = document.createElement("div")
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
-      //futureWeatherLeft1.style.backgroundColor = "#FFF7DF";
+      futureWeatherLeft1.style.color = 'grey'
+      futureWeatherLeft1.style.fontSize = '2.2vh';
+      futureWeatherLeft1.style.fontFamily = 'fantasy'
       futureWeatherLeft1.classList.add('future-weather1')
-      futureWeatherLeft1.innerHTML = trueDate;
+      futureWeatherLeft1.innerHTML = trueFutureDate;
       futureWeather.appendChild(futureWeatherLeft1);
 
       const futureWeatherLeft2 = document.createElement("div")
@@ -208,6 +224,8 @@ function showWeatherInDom(data) {
       futureWeatherRight1.style.minWidth = "22%";
       futureWeatherRight1.style.display = "flex";
       futureWeatherRight1.style.justifyContent = "center";
+      futureWeatherRight1.style.color = 'grey'
+      futureWeatherRight1.style.fontFamily = 'fantasy'
       futureWeatherRight1.style.alignItems = "center";
       futureWeatherRight1.innerHTML =
         Math.round(data.list[i].main.temp) + ` ` + tempSign
@@ -219,6 +237,8 @@ function showWeatherInDom(data) {
       futureWeatherRight2.style.display = "flex";
       futureWeatherRight2.style.justifyContent = "center";
       futureWeatherRight2.style.alignItems = "center";
+      futureWeatherRight2.style.color = 'grey'
+      futureWeatherRight2.style.fontFamily = 'fantasy'
       futureWeatherRight2.innerHTML =
         Math.round(data.list[i].wind.speed) + ` ` + mS
       futureWeather.appendChild(futureWeatherRight2);

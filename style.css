@@ -17,6 +17,16 @@ body {
   width: 50%;
 }
 
+h1,h2{
+  color: #333;
+  text-shadow: 0px -3px 0px rgba(255,255,255,.5); /* 50% white from top */
+}
+
+.pagrindine-temperatura{
+  color: #333;
+  text-shadow: 0px -3px 0px rgba(255,255,255,.5); /* 50% white from top */
+}
+
 .top-img {
   width: 20vw;
 }
