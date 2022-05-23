@@ -205,13 +205,13 @@ function showWeatherInDom(data) {
   function showWeather2days(indexReiksme, indexIlgis, indexPlius) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
 
-      let dateFromApi = '2022-02-02 21:00:00';
+      //let dateFromApi = '2022-02-02 21:00:00';
       let formatdateString = 'MM-DD HH:mm';
       //let momentDate = moment(dateFromApi, 'YYYY-MM-DD HH:mm:ss').format(formatdateString)
       let trueDate = moment(data.list[i].dt_txt).format(formatdateString)
       //console.log(momentDate)
       
-      let tempForecast = data.list[i].dt_txt
+      //let tempForecast = data.list[i].dt_txt
       console.log(data.list[i])
       console.log(moment(data.list[i].dt_txt).format(formatdateString))
 
