@@ -17,17 +17,18 @@ body {
   width: 100%;
 }
 
-h1,h2{
+h1,
+h2 {
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-	color: #9c8468;
+  color: #9c8468;
   opacity: 0.3;
   font-size: 6vh;
   font-weight: 900;
 }
 
-.pagrindine-temperatura{
+.pagrindine-temperatura {
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-	color: #9c8468;
+  color: #9c8468;
   opacity: 0.3;
   font-size: 20vh;
   font-weight: 900;
@@ -59,6 +60,10 @@ h1,h2{
   background-color: #f1f1f1;
   background-image: url(pattern8@2x.png);
   padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header a,
@@ -77,9 +82,12 @@ button {
 }
 
 .header a.logo {
-  font-size: 30px;
-  font-weight: bold;
-  color: rgba(133, 127, 127, 0.556);
+  font-size: 3vh;
+  font-weight: 100;
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #9c8468;
+  opacity: 0.3;
+  padding-bottom: 2%;
 }
 
 .header a:hover {
@@ -105,23 +113,24 @@ button {
   height: 100%;
 }
 
-.vejas, #tempnow {
+.vejas,
+#tempnow {
   max-width: 100%;
   border-style: ridge;
   /* color: rgb(156, 132, 104); */
   background-color: #f5f5f5;
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
-    color: #9c8468;
-    opacity: 0.3;
+  color: #9c8468;
+  opacity: 0.3;
 }
 
 .future-weather1 {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 22%;
-    font-size: 2.5vh;
-    padding-left: 2%;
+  align-items: center;
+  justify-content: center;
+  min-width: 22%;
+  font-size: 2.5vh;
+  padding-left: 2%;
 }
 
 .loader-wrapper {
@@ -210,7 +219,7 @@ button {
   }
 }
 
-@media screen and (max-width:787px) {
+@media screen and (max-width: 787px) {
   .header a,
   select,
   input {
@@ -229,13 +238,13 @@ button {
   }
   .future-weather {
     max-width: 95%;
-    
   }
 
-   #temp-big {
+  #temp-big {
     font-size: 11vh;
   }
-  .vejas, #tempnow {
+  .vejas,
+  #tempnow {
     max-width: 95%;
     border-style: ridge;
     color: rgb(156, 132, 104);
