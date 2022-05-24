@@ -99,27 +99,16 @@ function showWeatherInDom(data) {
 
       const containerH1 = document.createElement("H1")
       containerH1.innerText = data.city.name.toUpperCase()
-      //containerH1.style.fontFamily = 'fantasy'
-      //containerH1.style.color = 'dimgray'
       container.prepend(containerH1)
 
-      // const containerH3 = document.createElement("H3")
-      // containerH3.innerHTML = trueNowDate
-      // let trueNowDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateStringNow)
-      // let formatdateStringNow = 'dddd';
-      // container.append(containerH3)
-      
       const containerHeader = document.createElement("div");
       containerHeader.setAttribute("id", "container-header");
       containerHeader.style.display = "flex";
-      //containerHeader.style.fontSize = '50px'
       containerHeader.style.alignItems = "center";
       container.appendChild(containerHeader);
 
       const infoWeather = document.createElement("H2");
       infoWeather.style.padding = "2%";
-      //infoWeather.style.fontFamily = 'fantasy'
-      //infoWeather.style.color = 'dimgray'
       infoWeather.innerHTML = orasWeather
       container.appendChild(infoWeather);
 
@@ -127,8 +116,6 @@ function showWeatherInDom(data) {
       tempDabar.style.borderRadius = "10px";
       tempDabar.style.backgroundColor = "#f5f5f5";
       tempDabar.style.color = "#9c8468";
-      //tempDabar.style.fontFamily = 'fantasy'
-      //tempDabar.style.color = 'grey'
       tempDabar.style.padding = "2%";
       tempDabar.style.marginBottom = "2%";
       tempDabar.style.textAlign = 'start'
@@ -197,14 +184,12 @@ function showWeatherInDom(data) {
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
       futureWeatherLeft1.style.color = 'grey'
       futureWeatherLeft1.style.fontSize = '2.2vh';
-      //futureWeatherLeft1.style.fontFamily = 'fantasy'
       futureWeatherLeft1.classList.add('future-weather1')
       futureWeatherLeft1.innerHTML = trueFutureDate;
       futureWeather.appendChild(futureWeatherLeft1);
 
       const futureWeatherLeft2 = document.createElement("div")
       futureWeatherLeft2.setAttribute("id", "futureWeatherLeft2")
-      //futureWeatherLeft2.style.backgroundColor = "#FFF7DF"
       futureWeatherLeft2.style.display = "flex"
       futureWeatherLeft2.style.justifyContent = "center"
       futureWeather.appendChild(futureWeatherLeft2)
@@ -214,7 +199,6 @@ function showWeatherInDom(data) {
       futureimg.style.textAlign = "center";
       futureimg.src = futureIconUrl;
       futureWeatherLeft2.prepend(futureimg)
-      //futureWeatherLeft2.innerText = data.list[i].weather[0].description
       console.log(data.list[i].weather[0].description)
 
       const futureWeatherRight1 = document.createElement("div");
@@ -231,13 +215,11 @@ function showWeatherInDom(data) {
       futureWeather.appendChild(futureWeatherRight1);
       const futureWeatherRight2 = document.createElement("div");
       futureWeatherRight2.setAttribute("id", "futureWeatherRight2");
-      //futureWeatherRight2.style.backgroundColor = "#FFF7DF";
       futureWeatherRight2.style.minWidth = "22%";
       futureWeatherRight2.style.display = "flex";
       futureWeatherRight2.style.justifyContent = "center";
       futureWeatherRight2.style.alignItems = "center";
       futureWeatherRight2.style.color = 'grey'
-      //futureWeatherRight2.style.fontFamily = 'fantasy'
       futureWeatherRight2.innerHTML =
         Math.round(data.list[i].wind.speed) + ` ` + mS
       futureWeather.appendChild(futureWeatherRight2);
@@ -253,9 +235,6 @@ function showWeatherInDom(data) {
       futureWeather.style.border = "0.1px solid #888888";
       futureWeather.style.justifyContent = "space-evenly";
       document.getElementById("container").appendChild(futureWeather);
-
-      //let naujasArray = data.map(data.list[i])
-      //console.log(naujasArray)
 
     }
   }
@@ -305,20 +284,7 @@ document.getElementById('units').addEventListener('change', function () {
     mS = 'm/s'
   }
 })
-// function onTimerElapsed() {
-//   let myDiv = document.getElementById("city");
-//   myDiv.style.display = myDiv.style.display === 'none' ? 'block' : 'none';
-// }
-// function startTime(){
-//   const date = new Date()
-//   document.getElementById('laikrodis').innerHTML = date.toLocaleTimeString();
-//   setTimeout(function() {startTime()}, 1000) 
-// }
-// labasVakaras('Vytenis', 'grupiokai')
 
-// function labasVakaras(pirmasNarys, antrasNarys) {
-//   console.log(pirmasNarys + ` ` + ` ir ` + antrasNarys + ` labas vakaras!`)
-// }
 let infodiv = document.createElement('div');
   infodiv.className = "alert";
   infodiv.innerHTML = "Labas! Paieškos laukelyje įvesk miestą, kurio temperatūrą nori sužinoti";
@@ -343,24 +309,3 @@ let infodiv = document.createElement('div');
               return day.toLocaleString("lt-LT", { weekday: "long" })
           }
       }
-
-
-
-      // function Cars(marke, spalva, duruSkaicius) {
-      //   this.marke = marke
-      //   this.spalva = spalva
-      //   this.duruSkaicius = duruSkaicius
-      //   this.raktas = function(raktasM){
-      //     let secretKey = raktasM
-      //     console.log(secretKey)
-      //   }
-        
-      // }
-    
-      // const myCar = new Cars('Toyota', 'juoda', 5)
-      // const myCar1 = new Cars('Audi', 'balta', 3)
-      // const myCar3 = new Cars('BMW', 'Žalia', 5)
-
-      // myCar.raktas(85858 + `e6590487i`)
-      // myCar1.raktas(9 + `e6590487i`)
-      // myCar3.raktas(3843374 + `e6590487i`)
