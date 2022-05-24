@@ -56,8 +56,7 @@ function showWeatherInDom(data) {
     // data tai duomenys, kuriuos mes padavėm į funkciją
     // čia atvaizduojam gautus duomenis DOM'e
     const temperatura = Math.round(data.list[0].main.temp);
-    const temperaturaMin = Math.round(data.list[0].main.temp_min);
-    const temperaturaMax = Math.round(data.list[0].main.temp_max);
+    
     const vejasSpeed = Math.round(data.list[0].wind.speed);
     const vejasGust = Math.round(data.list[0].wind.gust);
     console.log(data.list[0].wind.deg)
@@ -182,6 +181,13 @@ function showWeatherInDom(data) {
       
       console.log(data.list[i])
       console.log(moment(data.list[i].dt_txt).format(formatdateString))
+
+      const temperaturaMin = Math.round(data.list[i].main.temp_min);
+      const temperaturaMax = Math.round(data.list[i].main.temp_max);
+      console.log(temperaturaMin)
+      console.log(temperaturaMax)
+
+
 
       const futureWeatherIcon = data.list[i].weather[0].icon
       const futureIconUrl =

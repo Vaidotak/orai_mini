@@ -240,9 +240,14 @@ button {
     max-width: 95%;
   }
 
-  #temp-big {
-    font-size: 11vh;
+  .pagrindine-temperatura {
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: #9c8468;
+    opacity: 0.3;
+    font-size: 16vh;
+    font-weight: 900;
   }
+  
   .vejas,
   #tempnow {
     max-width: 95%;
@@ -276,7 +281,18 @@ button {
     border-radius: 5px;
   }
 }
-@media screen and (min-width: 900px) {
+
+@media (min-width:787px) and (max-width:999px){
+  .pagrindine-temperatura {
+    text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+    color: #9c8468;
+    opacity: 0.3;
+    font-size: 18vh;
+    font-weight: 900;
+}
+}
+
+@media screen and (min-width: 1000px) {
   #container {
     min-width: 60%;
   }
