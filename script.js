@@ -58,6 +58,7 @@ function showWeatherInDom(data) {
     const temperatura = Math.round(data.list[0].main.temp);
     const vejasSpeed = Math.round(data.list[0].wind.speed);
     const vejasGust = Math.round(data.list[0].wind.gust);
+    console.log(data.list[0].wind.deg)
     const orasWeather = data.list[0].weather[0].description.toUpperCase();
     const orasFeelsLike = Math.round(data.list[0].main.feels_like);
     const slegis = data.list[0].main.pressure;
@@ -66,6 +67,22 @@ function showWeatherInDom(data) {
       "./SVG/" +
       weatherIcon +
       ".svg";
+
+    function getCardinalDirection(angle) {
+      const directions = [
+        "↑ N",
+        "↗ NE",
+        "→ E",
+        "↘ SE",
+        "↓ S",
+        "↙ SW",
+        "← W",
+        "↖ NW",
+      ];
+      return directions[Math.round(angle / 45) % 8];
+    }
+    console.log(getCardinalDirection(data.list[0].wind.deg));
+    const windDirect = getCardinalDirection(data.list[0].wind.deg);
 
     // paleidžiu pagrindinį konteinerį
     domContainer(data)
@@ -134,7 +151,7 @@ function showWeatherInDom(data) {
       vejas.innerHTML =
         windSpeed + ` ` +
         vejasSpeed +
-        ` ` + mS + `` + `,` + ` ` + gusT + ` ` +
+        ` ` + mS + ` ` + windDirect + `,` + ` ` + gusT + ` ` +
         vejasGust +
         ` ` + mS
       container.appendChild(vejas);
