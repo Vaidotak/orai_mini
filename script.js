@@ -63,7 +63,7 @@ function showWeatherInDom(data) {
     const slegis = data.list[0].main.pressure;
     const weatherIcon = data.list[0].weather[0].icon;
     const iconUrl =
-      "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
+      "./SVG/" +
       weatherIcon +
       ".svg";
 
@@ -99,7 +99,7 @@ function showWeatherInDom(data) {
 
       const containerH1 = document.createElement("H1")
       containerH1.innerText = data.city.name.toUpperCase()
-      containerH1.style.fontFamily = 'fantasy'
+      //containerH1.style.fontFamily = 'fantasy'
       //containerH1.style.color = 'dimgray'
       container.prepend(containerH1)
 
@@ -118,7 +118,7 @@ function showWeatherInDom(data) {
 
       const infoWeather = document.createElement("H2");
       infoWeather.style.padding = "2%";
-      infoWeather.style.fontFamily = 'fantasy'
+      //infoWeather.style.fontFamily = 'fantasy'
       //infoWeather.style.color = 'dimgray'
       infoWeather.innerHTML = orasWeather
       container.appendChild(infoWeather);
@@ -126,7 +126,7 @@ function showWeatherInDom(data) {
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
       tempDabar.style.backgroundColor = "#f5f5f5";
-      tempDabar.style.fontFamily = 'fantasy'
+      //tempDabar.style.fontFamily = 'fantasy'
       //tempDabar.style.color = 'grey'
       tempDabar.style.padding = "2%";
       tempDabar.style.marginBottom = "2%";
@@ -140,7 +140,7 @@ function showWeatherInDom(data) {
       vejas.className = "vejas";
       vejas.style.borderRadius = "10px";
       vejas.style.backgroundColor = "#f5f5f5";
-      vejas.style.fontFamily = 'fantasy'
+      //vejas.style.fontFamily = 'fantasy'
       vejas.style.color = 'grey'
       vejas.style.padding = "2%";
       vejas.style.marginBottom = "2%";
@@ -198,7 +198,7 @@ function showWeatherInDom(data) {
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1")
       futureWeatherLeft1.style.color = 'grey'
       futureWeatherLeft1.style.fontSize = '2.2vh';
-      futureWeatherLeft1.style.fontFamily = 'fantasy'
+      //futureWeatherLeft1.style.fontFamily = 'fantasy'
       futureWeatherLeft1.classList.add('future-weather1')
       futureWeatherLeft1.innerHTML = trueFutureDate;
       futureWeather.appendChild(futureWeatherLeft1);
@@ -225,7 +225,7 @@ function showWeatherInDom(data) {
       futureWeatherRight1.style.display = "flex";
       futureWeatherRight1.style.justifyContent = "center";
       futureWeatherRight1.style.color = 'grey'
-      futureWeatherRight1.style.fontFamily = 'fantasy'
+      //futureWeatherRight1.style.fontFamily = 'fantasy'
       futureWeatherRight1.style.alignItems = "center";
       futureWeatherRight1.innerHTML =
         Math.round(data.list[i].main.temp) + ` ` + tempSign
@@ -238,7 +238,7 @@ function showWeatherInDom(data) {
       futureWeatherRight2.style.justifyContent = "center";
       futureWeatherRight2.style.alignItems = "center";
       futureWeatherRight2.style.color = 'grey'
-      futureWeatherRight2.style.fontFamily = 'fantasy'
+      //futureWeatherRight2.style.fontFamily = 'fantasy'
       futureWeatherRight2.innerHTML =
         Math.round(data.list[i].wind.speed) + ` ` + mS
       futureWeather.appendChild(futureWeatherRight2);
