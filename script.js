@@ -187,7 +187,7 @@ function showWeatherInDom(data) {
 
       const futureWeatherIcon = data.list[i].weather[0].icon
       const futureIconUrl =
-        "/animated/" +
+        "./animated/" +
         futureWeatherIcon +
         ".svg";
       futureWeatherIcon
