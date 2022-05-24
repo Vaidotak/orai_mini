@@ -84,7 +84,7 @@ function showWeatherInDom(data) {
       container.style.marginTop = "5px"
       container.style.marginBottom = "5px"
       container.style.borderRadius = "10px"
-      container.style.fontFamily = 'fantasy'
+      //container.style.fontFamily = 'fantasy'
       container.style.color = 'dimgray'
       container.style.padding = "2%";
       container.style.opacity = "95%";
@@ -126,6 +126,7 @@ function showWeatherInDom(data) {
       const tempDabar = document.createElement("div");
       tempDabar.style.borderRadius = "10px";
       tempDabar.style.backgroundColor = "#f5f5f5";
+      tempDabar.style.color = "#9c8468";
       //tempDabar.style.fontFamily = 'fantasy'
       //tempDabar.style.color = 'grey'
       tempDabar.style.padding = "2%";
@@ -140,8 +141,6 @@ function showWeatherInDom(data) {
       vejas.className = "vejas";
       vejas.style.borderRadius = "10px";
       vejas.style.backgroundColor = "#f5f5f5";
-      //vejas.style.fontFamily = 'fantasy'
-      vejas.style.color = 'grey'
       vejas.style.padding = "2%";
       vejas.style.marginBottom = "2%";
       vejas.style.textAlign = 'start'
@@ -166,7 +165,7 @@ function showWeatherInDom(data) {
       //tempDabarBig.style.fontSize = "15vh";
       tempDabarBig.style.padding = "2%";
       tempDabarBig.classList.add('pagrindine-temperatura')
-      tempDabarBig.innerHTML = temperatura + ` ` + tempSign
+      tempDabarBig.innerHTML = temperatura + `` + tempSign
       containerHeader.appendChild(tempDabarBig);
     }
 
@@ -188,7 +187,7 @@ function showWeatherInDom(data) {
 
       const futureWeatherIcon = data.list[i].weather[0].icon
       const futureIconUrl =
-        "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
+        "/animated/" +
         futureWeatherIcon +
         ".svg";
       futureWeatherIcon
