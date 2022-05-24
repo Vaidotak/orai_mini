@@ -22,7 +22,7 @@ h2 {
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
   color: #9c8468;
   opacity: 0.3;
-  font-size: 6vh;
+  font-size: 4vh;
   font-weight: 900;
 }
 
@@ -247,7 +247,7 @@ button {
     font-size: 16vh;
     font-weight: 900;
   }
-  
+
   .vejas,
   #tempnow {
     max-width: 95%;
@@ -299,6 +299,14 @@ button {
   .top-img {
     width: 30vh;
   }
+  h1,
+h2 {
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #9c8468;
+  opacity: 0.3;
+  font-size: 6vh;
+  font-weight: 900;
+}
   /* #container-header{
     font-size: 15vw;
   } */
