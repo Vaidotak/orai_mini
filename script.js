@@ -70,14 +70,21 @@ function showWeatherInDom(data) {
 
     function getCardinalDirection(angle) {
       const directions = [
-        "↑ N",
-        "↗ NE",
-        "→ E",
-        "↘ SE",
-        "↓ S",
-        "↙ SW",
-        "← W",
-        "↖ NW",
+        "↓",
+
+        "↙",
+
+        "←",
+
+        "↖",
+
+        "↑",
+
+        "↗",
+
+        "→",
+
+        "↘",
       ];
       return directions[Math.round(angle / 45) % 8];
     }
@@ -238,7 +245,7 @@ function showWeatherInDom(data) {
       futureWeatherRight2.style.alignItems = "center";
       futureWeatherRight2.style.color = 'grey'
       futureWeatherRight2.innerHTML =
-        Math.round(data.list[i].wind.speed) + ` ` + mS
+        Math.round(data.list[i].wind.speed) + ` ` + mS +  ` ` +getCardinalDirection(data.list[i].wind.deg);
       futureWeather.appendChild(futureWeatherRight2);
       futureWeather.style.backgroundColor = "#FFFFFF";
       futureWeather.style.padding = "2px";
