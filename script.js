@@ -87,8 +87,8 @@ function showWeatherInDom(data) {
     function domContainer(data) {
       const container = document.createElement("div");
       container.setAttribute("id", "container");
-      container.style.backgroundColor = "#FEEFC3";
-      container.style.backgroundImage = "url('pattern8@2x.png')";
+      container.style.backgroundColor = "#FFFFFF";
+      // container.style.backgroundImage = "url('pattern8@2x.png')";
       //container.style.minWidth = "100%";
       container.style.maxWidth = "60%";
       container.style.margin = "auto";
