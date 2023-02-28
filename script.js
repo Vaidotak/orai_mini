@@ -70,8 +70,6 @@ function showWeatherInDom(data) {
       const container = document.createElement("div");
       container.setAttribute("id", "container");
       container.style.backgroundColor = "#FFFFFF";
-      // container.style.backgroundImage = "url('pattern8@2x.png')";
-      //container.style.minWidth = "100%";
       container.style.maxWidth = "60%";
       container.style.margin = "auto";
       container.style.marginTop = "5px";
@@ -162,7 +160,6 @@ function showWeatherInDom(data) {
       // Temperatūra. Pagrindinis rodmuo
       const tempDabarBig = document.createElement("div");
       tempDabarBig.setAttribute("id", "temp-big");
-      //tempDabarBig.style.fontSize = "15vh";
       tempDabarBig.style.padding = "2%";
       tempDabarBig.classList.add("pagrindine-temperatura");
       tempDabarBig.innerHTML = temperatura + `` + tempSign;
@@ -175,21 +172,15 @@ function showWeatherInDom(data) {
 
   function showWeather2days(indexReiksme, indexIlgis, indexPlius) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
-      //let dateFromApi = '2022-02-02 21:00:00';
       let formatdateString = "dddd, MMMM DD HH:mm";
       let formatdateString1 = "LLL";
       let trueFutureDate = moment(data.list[i].dt_txt)
         .locale("lt")
         .format(formatdateString1);
 
-      // console.log(data.list[i])
-      // console.log(moment(data.list[i].dt_txt).format(formatdateString))
-
       const temperaturaMin = Math.round(data.list[i].main.temp_min);
       const temperaturaMax = Math.round(data.list[i].main.temp_max);
-      console.log(temperaturaMin);
-      console.log(temperaturaMax);
-
+  
       const futureWeatherIcon = data.list[i].weather[0].icon;
       const futureIconUrl =
         "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
