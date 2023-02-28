@@ -180,8 +180,8 @@ function showWeatherInDom(data) {
       let formatdateString1 = 'LLL';
       let trueFutureDate = moment(data.list[i].dt_txt).locale('lt').format(formatdateString1)
       
-      console.log(data.list[i])
-      console.log(moment(data.list[i].dt_txt).format(formatdateString))
+      // console.log(data.list[i])
+      // console.log(moment(data.list[i].dt_txt).format(formatdateString))
 
       const temperaturaMin = Math.round(data.list[i].main.temp_min);
       const temperaturaMax = Math.round(data.list[i].main.temp_max);
@@ -191,10 +191,7 @@ function showWeatherInDom(data) {
 
 
       const futureWeatherIcon = data.list[i].weather[0].icon
-      const futureIconUrl =
-        "./animated/" +
-        futureWeatherIcon +
-        ".svg";
+      const futureIconUrl = 'http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/' + futureWeatherIcon + '.svg'
       futureWeatherIcon
       const futureWeather = document.createElement("div")
       futureWeather.className = "future-weather";
