@@ -103,33 +103,32 @@ function showWeatherInDom(data) {
       infoWeather.innerHTML = orasWeather;
       container.appendChild(infoWeather);
 
-      const tempDabar = document.createElement("H2");
-      tempDabar.style.padding = "2%";
-      tempDabar.style.marginBottom = "2%";
-      //tempDabar.style.textAlign = "start";
-      tempDabar.setAttribute("id", "tempnow");
-      tempDabar.innerHTML =
-        feelsSign +
-        ` ` +
-        orasFeelsLike +
-        ` ` +
-        tempSign +
-        `` +
-        `,` +
-        ` ` +
-        langPressure +
-        ` ` +
-        slegis +
-        ` hPa`;
-      container.appendChild(tempDabar);
+const tempDabar = document.createElement("H2");
+tempDabar.style.padding = "1%";
+tempDabar.setAttribute("id", "tempnow");
 
-      const vejas = document.createElement("div");
+const textNode = document.createTextNode(
+  feelsSign +
+    ` ` +
+    orasFeelsLike +
+    ` ` +
+    tempSign +
+    `` +
+    `,` +
+    ` ` +
+    langPressure +
+    "\n" + // Pridedame naują eilutę
+    slegis +
+    ` hPa`
+);
+
+tempDabar.appendChild(textNode);
+container.appendChild(tempDabar);
+
+      const vejas = document.createElement("H2");
       vejas.className = "vejas";
-      vejas.style.borderRadius = "10px";
-      vejas.style.backgroundColor = "#f5f5f5";
-      vejas.style.padding = "2%";
-      vejas.style.marginBottom = "2%";
-      vejas.style.textAlign = "start";
+      vejas.style.padding = "1%";
+      //vejas.style.marginBottom = "2%";
       vejas.innerHTML =
         windSpeed +
         ` ` +
