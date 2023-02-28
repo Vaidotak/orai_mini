@@ -103,13 +103,10 @@ function showWeatherInDom(data) {
       infoWeather.innerHTML = orasWeather;
       container.appendChild(infoWeather);
 
-      const tempDabar = document.createElement("div");
-      tempDabar.style.borderRadius = "10px";
-      tempDabar.style.backgroundColor = "#f5f5f5";
-      tempDabar.style.color = "#9c8468";
+      const tempDabar = document.createElement("H2");
       tempDabar.style.padding = "2%";
       tempDabar.style.marginBottom = "2%";
-      tempDabar.style.textAlign = "start";
+      //tempDabar.style.textAlign = "start";
       tempDabar.setAttribute("id", "tempnow");
       tempDabar.innerHTML =
         feelsSign +
@@ -251,13 +248,13 @@ function showWeatherInDom(data) {
     }
   }
 }
-let feelsSign = "jutiminė";
-let windSpeed = "vėjo greitis";
+let feelsSign = "JUTIMINĖ";
+let windSpeed = "VĖJO GREITIS";
 let mS = "m/s";
-let gusT = "gūsiais";
+let gusT = "GŪSIAIS";
 let tempSign = "°C";
 let windSpeedImperial = "mph";
-let langPressure = "slėgis";
+let langPressure = "SLĖGIS";
 document.getElementById("language").addEventListener("change", function () {
   lang = this.value;
   if (lang === "en") {
@@ -274,10 +271,10 @@ document.getElementById("language").addEventListener("change", function () {
     langPressure = "тиск";
   }
   if (lang === "lt") {
-    feelsSign = "jutiminė";
-    windSpeed = "vėjo greitis";
-    gusT = "gūsiais";
-    langPressure = "slėgis";
+    feelsSign = "JUTIMINĖ";
+    windSpeed = "VĖJO GREITIS";
+    gusT = "GŪSIAIS";
+    langPressure = "SLĖGIS";
   }
 });
 document.getElementById("units").addEventListener("change", function () {
