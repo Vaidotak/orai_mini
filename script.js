@@ -70,11 +70,11 @@ function showWeatherInDom(data) {
       const container = document.createElement("div");
       container.setAttribute("id", "container");
       container.style.backgroundColor = "#FFFFFF";
-      container.style.maxWidth = "60%";
+      container.style.maxWidth = "95%";
       container.style.margin = "auto";
       container.style.marginTop = "5px";
       container.style.marginBottom = "5px";
-      container.style.borderRadius = "10px";
+      //container.style.borderRadius = "10px";
       //container.style.fontFamily = 'fantasy'
       container.style.color = "dimgray";
       container.style.padding = "2%";
@@ -241,7 +241,7 @@ container.appendChild(tempDabar);
       futureWeather.style.flexGrow = " 1";
       futureWeather.style.flexShrink = " 1";
       futureWeather.style.columnGap = "10px";
-      futureWeather.style.border = "0.1px solid #888888";
+      futureWeather.style.border = "0.1px solid #eee";
       futureWeather.style.justifyContent = "space-evenly";
       document.getElementById("container").appendChild(futureWeather);
     }
