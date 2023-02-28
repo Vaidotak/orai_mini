@@ -64,10 +64,11 @@ function showWeatherInDom(data) {
     const orasFeelsLike = Math.round(data.list[0].main.feels_like);
     const slegis = data.list[0].main.pressure;
     const weatherIcon = data.list[0].weather[0].icon;
-    const iconUrl =
-      "./SVG/" +
-      weatherIcon +
-      ".svg";
+    // const iconUrl =
+    //   "./SVG/" +
+    //   weatherIcon +
+    //   ".svg";
+    const iconUrl = 'http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/' + weatherIcon + '.svg'
 
     function getCardinalDirection(angle) {
       const directions = [
