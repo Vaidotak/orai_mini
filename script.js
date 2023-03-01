@@ -64,7 +64,7 @@ function showWeatherInDom(data) {
     domContainer(data);
 
     // sukuriami papildomi blokai ateities temperatūrai parodyti
-    showWeather2days(1, 20, 4);
+    showWeather2days(1, 20, 2);
 
     function domContainer(data) {
       const container = document.createElement("div");
