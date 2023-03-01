@@ -89,7 +89,11 @@ function showWeatherInDom(data) {
       document.body.appendChild(container);
 
       const containerH1 = document.createElement("H1");
-      containerH1.innerText = data.city.name.toUpperCase();
+      containerH1.innerText = data.city.name.toUpperCase() + ` `+ feelsSign +
+      ` ` +
+      orasFeelsLike +
+      ` ` +
+      tempSign;
       container.prepend(containerH1);
 
       const containerHeader = document.createElement("div");
@@ -108,14 +112,14 @@ tempDabar.style.padding = "1%";
 tempDabar.setAttribute("id", "tempnow");
 
 const textNode = document.createTextNode(
-  feelsSign +
-    ` ` +
-    orasFeelsLike +
-    ` ` +
-    tempSign +
-    `` +
-    `,` +
-    ` ` +
+  // feelsSign +
+  //   ` ` +
+  //   orasFeelsLike +
+  //   ` ` +
+  //   tempSign +
+  //   `` +
+  //   `,` +
+  //   ` ` +
     langPressure +
     "\n" + // Pridedame naują eilutę
     slegis +
