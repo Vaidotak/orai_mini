@@ -1,12 +1,11 @@
-let apiKey = "3caf575b23a52e649f756f432846ed3e"; // mano api key
-let lang = "lt"; // kalba
-let units = "metric"; // naudojama metrinė sistema
-let city = ""; // miestas įrašytas inpute
+let apiKey = "3caf575b23a52e649f756f432846ed3e";
+let lang = "lt"; 
+let units = "metric";
+let city = "";
 
 let cityName = document.getElementById("city");
 let searchButton = document.getElementById("search");
 
-// iš local storage paimu vertę ir įdedu į inputą
 cityName.value = localStorage.getItem("miestas");
 
 if (localStorage.getItem("miestas") != null) {
@@ -57,7 +56,7 @@ function showWeatherInDom(data) {
       const directions = ["↓", "↙", "←", "↖", "↑", "↗", "→", "↘"];
       return directions[Math.round(angle / 45) % 8];
     }
-    console.log(getCardinalDirection(data.list[0].wind.deg));
+    
     const windDirect = getCardinalDirection(data.list[0].wind.deg);
 
     // paleidžiu pagrindinį konteinerį
@@ -89,7 +88,7 @@ function showWeatherInDom(data) {
       document.body.appendChild(container);
 
       const containerH1 = document.createElement("H1");
-      containerH1.innerText = data.city.name.toUpperCase() + ` `+ feelsSign +
+      containerH1.innerText = data.city.name.toUpperCase() + ` `+ feelsSign.toLowerCase() +
       ` ` +
       orasFeelsLike +
       ` ` +

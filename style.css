@@ -61,7 +61,7 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
 }
 
 .header a,
@@ -101,6 +101,20 @@ button {
   float: right;
   display: flex;
   margin-right: 20px;
+}
+
+.weather-container {
+  background-color: #FFFFFF;
+  max-width: 95%;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  /* border-radius: 10px; */
+  /* font-family: fantasy; */
+  color: dimgray;
+  padding: 2%;
+  opacity: 0.95;
+  font-size: 3vh;
 }
 
 .content {
