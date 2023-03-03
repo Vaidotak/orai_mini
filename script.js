@@ -75,18 +75,9 @@ console.log(data.list)
     function domContainer(data) {
       const container = document.createElement("div");
       container.setAttribute("id", "container");
-      container.style.backgroundColor = "#FFFFFF";
-      container.style.maxWidth = "95%";
-      container.style.margin = "auto";
-      container.style.marginTop = "5px";
-      container.style.marginBottom = "5px";
-      //container.style.borderRadius = "10px";
-      //container.style.fontFamily = 'fantasy'
-      container.style.color = "dimgray";
-      container.style.padding = "2%";
-      container.style.opacity = "95%";
-      container.style.fontSize = "3vh";
-
+      const konteineriukas = container.classList
+      konteineriukas.add("konteineriukas");
+      
       // prieš appendinant ištrinamas ankstesnis sukurtas konteineris
       if (document.getElementById("container")) {
         document.getElementById("container").remove();
