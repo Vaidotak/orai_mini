@@ -20,6 +20,12 @@ function getDataFromApi() {
   city = cityName.value.trimEnd();
   localStorage.setItem("miestas", city);
 
+  cityName.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      getDataFromApi();
+    }
+  });
+
   let url =
     "https://api.openweathermap.org/data/2.5/forecast?" +
     "q=" +
@@ -46,12 +52,13 @@ function showWeatherInDom(data) {
     const orasWeather = data.list[0].weather[0].description.toUpperCase();
     const orasFeelsLike = Math.round(data.list[0].main.feels_like);
     const slegis = data.list[0].main.pressure;
+    const slegisGrnd = data.list[0].main.grnd_level;
     const weatherIcon = data.list[0].weather[0].icon;
     const iconUrl =
       "http://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/" +
       weatherIcon +
       ".svg";
-
+console.log(data.list)
     function getCardinalDirection(angle) {
       const directions = ["↓", "↙", "←", "↖", "↑", "↗", "→", "↘"];
       return directions[Math.round(angle / 45) % 8];
@@ -171,11 +178,11 @@ container.appendChild(tempDabar);
 
   function showWeather2days(indexReiksme, indexIlgis, indexPlius) {
     for (let i = indexReiksme; i < indexIlgis; i += indexPlius) {
-      let formatdateString = "dddd, MMMM DD HH:mm";
+      let formatdateString = "ddd, MMMM DD, HH:mm";
       let formatdateString1 = "LLL";
       let trueFutureDate = moment(data.list[i].dt_txt)
         .locale("lt")
-        .format(formatdateString1);
+        .format(formatdateString);
 
       const temperaturaMin = Math.round(data.list[i].main.temp_min);
       const temperaturaMax = Math.round(data.list[i].main.temp_max);
@@ -190,8 +197,8 @@ container.appendChild(tempDabar);
       futureWeather.className = "future-weather";
       const futureWeatherLeft1 = document.createElement("div");
       futureWeatherLeft1.setAttribute("id", "futureWeatherLeft1");
-      futureWeatherLeft1.style.color = "grey";
-      futureWeatherLeft1.style.fontSize = "2.2vh";
+      //futureWeatherLeft1.style.color = "grey";
+      //futureWeatherLeft1.style.fontSize = "2.2vh";
       futureWeatherLeft1.classList.add("future-weather1");
       futureWeatherLeft1.innerHTML = trueFutureDate;
       futureWeather.appendChild(futureWeatherLeft1);
@@ -235,17 +242,8 @@ container.appendChild(tempDabar);
         ` ` +
         getCardinalDirection(data.list[i].wind.deg);
       futureWeather.appendChild(futureWeatherRight2);
-      futureWeather.style.backgroundColor = "#FFFFFF";
-      futureWeather.style.padding = "2px";
-      futureWeather.style.margin = "5px";
-      futureWeather.style.fontSize = "2.5vh";
-      futureWeather.style.display = "flex";
-      futureWeather.style.flexBasis = "0";
-      futureWeather.style.flexGrow = " 1";
-      futureWeather.style.flexShrink = " 1";
-      futureWeather.style.columnGap = "10px";
-      futureWeather.style.border = "0.1px solid #eee";
-      futureWeather.style.justifyContent = "space-evenly";
+      const vejosKryptis = futureWeather.classList
+      vejosKryptis.add("vejosKryptis");
       document.getElementById("container").appendChild(futureWeather);
     }
   }
@@ -257,43 +255,6 @@ let gusT = "GŪSIAIS";
 let tempSign = "°C";
 let windSpeedImperial = "mph";
 let langPressure = "SLĖGIS";
-document.getElementById("language").addEventListener("change", function () {
-  lang = this.value;
-  if (lang === "en") {
-    feelsSign = "feels like";
-    windSpeed = "wind speed";
-    gusT = "gust";
-    langPressure = "pressure";
-  }
-  if (lang === "ua") {
-    feelsSign = "відчуває, як";
-    windSpeed = "швидкість вітруd";
-    mS = "м/с";
-    gusT = "порив";
-    langPressure = "тиск";
-  }
-  if (lang === "lt") {
-    feelsSign = "JUTIMINĖ";
-    windSpeed = "VĖJO GREITIS";
-    gusT = "GŪSIAIS";
-    langPressure = "SLĖGIS";
-  }
-});
-document.getElementById("units").addEventListener("change", function () {
-  units = this.value;
-  if (units === "imperial") {
-    tempSign = "°F";
-    mS = "mph";
-  }
-  if (units === "standart") {
-    tempSign = "°K";
-    mS = "m/s";
-  }
-  if (units === "metric") {
-    tempSign = "°C";
-    mS = "m/s";
-  }
-});
 
 let infodiv = document.createElement("div");
 infodiv.className = "alert";

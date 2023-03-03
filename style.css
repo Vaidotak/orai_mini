@@ -103,6 +103,20 @@ button {
   margin-right: 20px;
 }
 
+.vejosKryptis{
+  background-color: #eeeeee;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  column-gap: 10px;
+  border: "0.1px solid #eee";
+  justify-content: space-evenly;
+  font-size: "2.5vh";
+  padding: 2px;
+  margin: 5px;
+}
+
 .weather-container {
   background-color: #FFFFFF;
   max-width: 95%;
@@ -142,6 +156,7 @@ button {
   min-width: 22%;
   font-size: 2.5vh;
   padding-left: 2%;
+  color: grey;
 }
 
 .loader-wrapper {
