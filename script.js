@@ -108,22 +108,14 @@ const tempDabar = document.createElement("H2");
 tempDabar.style.padding = "1%";
 tempDabar.setAttribute("id", "tempnow");
 
-const textNode = document.createTextNode(
-  // feelsSign +
-  //   ` ` +
-  //   orasFeelsLike +
-  //   ` ` +
-  //   tempSign +
-  //   `` +
-  //   `,` +
-  //   ` ` +
+const slegisPazemiui = document.createTextNode(
     langPressure +
     "\n" + // Pridedame naują eilutę
-    slegis +
+    slegisGrnd +
     ` hPa`
 );
 
-tempDabar.appendChild(textNode);
+tempDabar.appendChild(slegisPazemiui);
 container.appendChild(tempDabar);
 
       const vejas = document.createElement("H2");
@@ -245,7 +237,7 @@ let mS = "m/s";
 let gusT = "GŪSIAIS";
 let tempSign = "°C";
 let windSpeedImperial = "mph";
-let langPressure = "SLĖGIS";
+let langPressure = "atmosferos slėgis žemės paviršiuje";
 
 let infodiv = document.createElement("div");
 infodiv.className = "alert";
