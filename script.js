@@ -86,11 +86,15 @@ console.log(data.list)
       document.body.appendChild(container);
 
       const containerH1 = document.createElement("H1");
-      containerH1.innerText = data.city.name.toUpperCase() + ` `+ feelsSign.toLowerCase() +
+      containerH1.innerText = data.city.name.toUpperCase();
+      const containerH3 = document.createElement("H3");
+      containerH3.innerText = feelsSign.toLowerCase() +
       ` ` +
       orasFeelsLike +
       ` ` +
       tempSign;
+      
+      container.prepend(containerH3);
       container.prepend(containerH1);
 
       const containerHeader = document.createElement("div");
@@ -104,7 +108,7 @@ console.log(data.list)
       infoWeather.innerHTML = orasWeather;
       container.appendChild(infoWeather);
 
-const tempDabar = document.createElement("H2");
+const tempDabar = document.createElement("H3");
 tempDabar.style.padding = "1%";
 tempDabar.setAttribute("id", "tempnow");
 
@@ -118,7 +122,7 @@ const slegisPazemiui = document.createTextNode(
 tempDabar.appendChild(slegisPazemiui);
 container.appendChild(tempDabar);
 
-      const vejas = document.createElement("H2");
+      const vejas = document.createElement("H3");
       vejas.className = "vejas";
       vejas.style.padding = "1%";
       //vejas.style.marginBottom = "2%";

@@ -24,6 +24,14 @@ h2 {
   font-weight: 900;
 }
 
+h3 {
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+  color: #9c8468;
+  opacity: 0.3;
+  font-size: 3vh;
+  font-weight: 900;
+}
+
 .pagrindine-temperatura {
   text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
   color: #9c8468;
