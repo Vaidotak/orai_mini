@@ -219,6 +219,7 @@ button {
   color: #3c763d;
   background-color: #dff0d8;
   text-align: right;
+  margin-right: 15px;
 }
 
 @keyframes loader {
