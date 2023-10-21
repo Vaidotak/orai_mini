@@ -238,7 +238,7 @@ container.appendChild(tempDabar);
 let feelsSign = "JUTIMINĖ";
 let windSpeed = "VĖJO GREITIS";
 let mS = "m/s";
-let gusT = "GŪSIAIS";
+let gusT = "GŪSIAI";
 let tempSign = "°C";
 let windSpeedImperial = "mph";
 let langPressure = "atmosferos slėgis žemės paviršiuje";
