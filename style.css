@@ -32,27 +32,3 @@ p {
     height: 100%;
     background-color: #000;
 }
-
-#game {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-#cards {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card {
-    width: 100px;
-    height: 100px;
-    margin: 10px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    cursor: pointer;
-}
-
-.card.flipped {
-    background-color: #000;
-}
