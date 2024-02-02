@@ -8,6 +8,6 @@ const interval = setInterval(() => {
 
     if (progress === 100) {
         clearInterval(interval);
-        window.location.href = "https://www.google.com/"; // Pakeiskite šią nuorodą į savo puslapio nuorodą
+        window.location.href = "https://www.aromatas.eu/";
     }
 }, 100);
